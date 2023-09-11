@@ -1,0 +1,153 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountOfETH",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountOfTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "BuyTokens",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "buyTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokensPerEth",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contract/blacklist.sol": "blacklist"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contract/Context.sol": {
+			"keccak256": "0x3cd212092a3b2272c0b9eca9e7f64160e63e2aeb323df43cdff962938c6246fb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d815d61901925dce73ed79508c260e588c4d68a4e46a2b6994a04af70581f493",
+				"dweb:/ipfs/Qmc121ZKzmsAdndWaoXsNc4G7jtYUMK2ZTBuYJjj3m6qdg"
+			]
+		},
+		"Contract/ERC20.sol": {
+			"keccak256": "0xa32b1d99c6115118555e039e5fbcdb176a5f3ed52cba87dce3bcda588c1b298f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dc783797e9cee3f0fbdd59dd1fbbec4c6aa230712d798d8892b37b9c54b5bbbc",
+				"dweb:/ipfs/QmboeDfzBQ8xyh4nS1BVRBmbZDBx8Mme5eoX9hNc2jLkLb"
+			]
+		},
+		"Contract/IERC20.sol": {
+			"keccak256": "0x052ce219bfeae109b7ad02f083ca7f1f47525e7faf79521305a30fcf40a08a89",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75db5c33888c4cd26d6fef902d64b444ceb99e31fa8042466037e01530c9c7eb",
+				"dweb:/ipfs/QmZ2MWSXhSCXAvyY4xLWsABjc93Tq4psYudt4PRR9dAXeD"
+			]
+		},
+		"Contract/IERC20Metadata.sol": {
+			"keccak256": "0x3be45cda784d1142bf36aa2306800d11333d447922b6907f811d187eb45e7d41",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb96fb7bedc5edcc5335ac0831ae00004e6bb9fc2ca3a914d1cd9f7bfe37349a",
+				"dweb:/ipfs/QmePrDpmaTMye6c6wJA9u9qL6d4pP4F6PK7Ws8Y2d5dxFn"
+			]
+		},
+		"Contract/Mytoken.sol": {
+			"keccak256": "0x16e0e3c8ca0f66fb6a3995c1dfdbd47093567c40ddb38f93984d65707150dde0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c6d306843cc394641f8806ff80eeedce22849e6c3b87b265450f6bf28a16e336",
+				"dweb:/ipfs/QmWEnQCaQgoze9c24pc6WGfCvtEyh2ey6WcPmJDwg1P3z7"
+			]
+		},
+		"Contract/Ownable.sol": {
+			"keccak256": "0xa2a1be31898dd66f6b5c208c6c0d8b27729992988453fe9c5d95f8956f056801",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://304afef0656e4ff471320935f543e3d6e7cfca10249eb2bf6be8f858720c7e16",
+				"dweb:/ipfs/QmeumDMuWK8hdcTT16qspfbyJ1b5fkjk91rzNkjkJmPPHW"
+			]
+		},
+		"Contract/blacklist.sol": {
+			"keccak256": "0x0036abab0717eaffe87f5b4be6d14de226d7525cd50df40b789da302e6c1898c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc7e868292f512fdbf4c676749eb6ef9ddb0364574e0f9a09fba4438afb4d05e",
+				"dweb:/ipfs/QmVVQq2iVqmGRzsweVxo3jsiRU4imZ6dC3MXYyXxs8oaX5"
+			]
+		},
+		"Contract/draft-IERC6093.sol": {
+			"keccak256": "0x28f9065ac5ac49eec762f5e09d83ad395fcc788ed9e8684fb111d64b3e2d8f7d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d8cb32744155f6f9531fbaaf2c022157be77052b64e7a9bdc55ef8d17e3e67b",
+				"dweb:/ipfs/QmWda2bAAzvahMATWyNSLUFy7WUorq6q2316YGPMVN8t7Z"
+			]
+		}
+	},
+	"version": 1
+}

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 // Import the Delegator contract
-import "./delegate.sol";
+import "./delegator.sol";
 
 contract DelegatedWithdrawal {
     Delegator public delegatorContract;

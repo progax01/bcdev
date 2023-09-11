@@ -1,0 +1,124 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_delegatorAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "delegatorContract",
+				"outputs": [
+					{
+						"internalType": "contract Delegator",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "initiateWithdrawal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"mycontract.sol": "DelegatedWithdrawal"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"delegator.sol": {
+			"keccak256": "0x2c62a4f6cc43c45c4271bfbbd804987cb1457192033dbc1ddc930bbff872dc2f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a4768829bc32e09ae04730c59453052d32179bc9872c24d73cd75dfde268fafb",
+				"dweb:/ipfs/QmR3yYNGjRbK3NZQogCTX9pNuurE27irgSU6kHrkePq5ce"
+			]
+		},
+		"mycontract.sol": {
+			"keccak256": "0xba11f099e68724c76ac9c4a91d7b912a4c4a9fba71b3dba841a421e139094409",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3f3c22206842d174151173711107f8703e71b583815b9e73c915c826fd0031a4",
+				"dweb:/ipfs/QmVM1gUqbsEZRfN2h26HVdktQDK5mvnijgGEKjgALLZuMp"
+			]
+		}
+	},
+	"version": 1
+}
