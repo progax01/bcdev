@@ -585,7 +585,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"myerc1155.sol": "Myerc1155"
+			"erc1155/myerc1155.sol": "Myerc1155"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -687,7 +687,7 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"myerc1155.sol": {
+		"erc1155/myerc1155.sol": {
 			"keccak256": "0x73e274dc4e16a895b0b8a754e12e6de2f05b45cf170122b7c970494c82a1bfb8",
 			"license": "MIT",
 			"urls": [

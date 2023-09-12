@@ -661,7 +661,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"myercA.sol": "Myerca"
+			"Myerc721A/myercA.sol": "Myerca"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -691,6 +691,14 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
+		"Myerc721A/myercA.sol": {
+			"keccak256": "0x23f4ca86e89e86a99eaef6ec0df0c3bc5bb9b60d9cf41794b0fbbd837fffd1c0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://34c63ae6f42e093370ed8f2a5cb6f049019de7736497f04efef8071424fc6db2",
+				"dweb:/ipfs/QmQz6q3FH9JzV3QTwKpEUxVgf8FGNdWSjkA4Xj8NanvoTt"
+			]
+		},
 		"https://github.com/chiru-labs/ERC721A/blob/main/contracts/ERC721A.sol": {
 			"keccak256": "0x412e6281d70f9a223457a713988e2b3da768fc363627f70c368516e20253ead3",
 			"license": "MIT",
@@ -705,14 +713,6 @@
 			"urls": [
 				"bzz-raw://284680b4fdbf52b2aa888f7988447568ee82c5d1585c1535d985ff25153bc3b9",
 				"dweb:/ipfs/QmTWfDch6XJMwVLA4CY2pMedzrLWoN8ZdgYZ1UbRzesysz"
-			]
-		},
-		"myercA.sol": {
-			"keccak256": "0x23f4ca86e89e86a99eaef6ec0df0c3bc5bb9b60d9cf41794b0fbbd837fffd1c0",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://34c63ae6f42e093370ed8f2a5cb6f049019de7736497f04efef8071424fc6db2",
-				"dweb:/ipfs/QmQz6q3FH9JzV3QTwKpEUxVgf8FGNdWSjkA4Xj8NanvoTt"
 			]
 		}
 	},
