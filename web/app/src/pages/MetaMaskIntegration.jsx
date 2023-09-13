@@ -74,7 +74,10 @@ function MetaMaskIntegration() {
     <p>Balance: {balance} ETH</p>
   };
 
-  const handleContract = async()=>{};
+  const handleContract = async()=>{
+    ContractCon();
+
+  };
 
   return (
     <div>

@@ -257,6 +257,21 @@ const ContractAbi = [
 ];
 
 const ContractAddress = "0x4b7A6CA413f95CC81F627DC688673f693181d7Fc";
-
-
+ function ContractCon() {
+const web3 = new Web3(window.ethereum);
 const { ethereum } = window;
+const contract = new web3.eth.Contract(ContractAbi, ContractAddress);
+
+async function getContractData() {
+  const data = await contract.methods.getData().call();
+  console.log('Contract data:', data);
+}
+
+// Send a transaction to a contract method
+async function sendDataToContract(value) {
+  const accounts = await web3.eth.getAccounts();
+  await contract.methods.setData(value).send({ from: accounts[0] });
+  console.log('Transaction sent');
+}
+}
+export default ContractCon;
