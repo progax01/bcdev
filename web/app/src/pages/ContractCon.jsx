@@ -1,7 +1,8 @@
 //import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
+//import { ethers } from "ethers";
 //import { contractABI, contractAddress } from "../utils/constants";
-
+import Web3 from "web3";
+    
 const ContractAbi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {
@@ -257,10 +258,11 @@ const ContractAbi = [
 ];
 
 const ContractAddress = "0x4b7A6CA413f95CC81F627DC688673f693181d7Fc";
- function ContractCon() {
-const web3 = new Web3(window.ethereum);
-const { ethereum } = window;
+const web3 = new Web3('https://sepolia.infura.io/v3/da8932a090e84bc8ac665b643d5bf539');
+//const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(ContractAbi, ContractAddress);
+ 
+ function ContractCon() {
 
 async function getContractData() {
   const data = await contract.methods.getData().call();
@@ -273,5 +275,15 @@ async function sendDataToContract(value) {
   await contract.methods.setData(value).send({ from: accounts[0] });
   console.log('Transaction sent');
 }
+getContractData();
+sendDataToContract();
+return (
+  <section>
+  data;
+  
+  account;
+  </section>
+);
 }
+
 export default ContractCon;
