@@ -1,15 +1,21 @@
-//import React, { useEffect, useState } from "react";
-//import { ethers } from "ethers";
-//import { contractABI, contractAddress } from "../utils/constants";
+import  { useState } from "react";
 import Web3 from "web3";
-    
+
 const ContractAbi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {
     inputs: [
       { internalType: "address", name: "spender", type: "address" },
-      { internalType: "uint256", name: "currentAllowance", type: "uint256" },
-      { internalType: "uint256", name: "requestedDecrease", type: "uint256" },
+      {
+        internalType: "uint256",
+        name: "currentAllowance",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "requestedDecrease",
+        type: "uint256",
+      },
     ],
     name: "ERC20FailedDecreaseAllowance",
     type: "error",
@@ -33,32 +39,44 @@ const ContractAbi = [
     type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "approver", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "approver", type: "address" },
+    ],
     name: "ERC20InvalidApprover",
     type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "receiver", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "receiver", type: "address" },
+    ],
     name: "ERC20InvalidReceiver",
     type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "sender", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "sender", type: "address" },
+    ],
     name: "ERC20InvalidSender",
     type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "spender", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "spender", type: "address" },
+    ],
     name: "ERC20InvalidSpender",
     type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "owner", type: "address" },
+    ],
     name: "OwnableInvalidOwner",
     type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "account", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "account", type: "address" },
+    ],
     name: "OwnableUnauthorizedAccount",
     type: "error",
   },
@@ -109,8 +127,18 @@ const ContractAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "address", name: "from", type: "address" },
-      { indexed: true, internalType: "address", name: "to", type: "address" },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
       {
         indexed: false,
         internalType: "uint256",
@@ -142,14 +170,18 @@ const ContractAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "address", name: "account", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "account", type: "address" },
+    ],
     name: "balanceOf",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "amount", type: "uint256" }],
+    inputs: [
+      { internalType: "uint256", name: "amount", type: "uint256" },
+    ],
     name: "burn",
     outputs: [],
     stateMutability: "nonpayable",
@@ -165,7 +197,11 @@ const ContractAbi = [
   {
     inputs: [
       { internalType: "address", name: "spender", type: "address" },
-      { internalType: "uint256", name: "requestedDecrease", type: "uint256" },
+      {
+        internalType: "uint256",
+        name: "requestedDecrease",
+        type: "uint256",
+      },
     ],
     name: "decreaseAllowance",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
@@ -175,7 +211,11 @@ const ContractAbi = [
   {
     inputs: [
       { internalType: "address", name: "spender", type: "address" },
-      { internalType: "uint256", name: "addedValue", type: "uint256" },
+      {
+        internalType: "uint256",
+        name: "addedValue",
+        type: "uint256",
+      },
     ],
     name: "increaseAllowance",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
@@ -249,7 +289,9 @@ const ContractAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
+    inputs: [
+      { internalType: "address", name: "newOwner", type: "address" },
+    ],
     name: "transferOwnership",
     outputs: [],
     stateMutability: "nonpayable",
@@ -259,31 +301,58 @@ const ContractAbi = [
 
 const ContractAddress = "0x4b7A6CA413f95CC81F627DC688673f693181d7Fc";
 const web3 = new Web3('https://sepolia.infura.io/v3/da8932a090e84bc8ac665b643d5bf539');
-//const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(ContractAbi, ContractAddress);
- 
- function ContractCon() {
 
-async function getContractData() {
-  const data = await contract.methods.getData().call();
-  console.log('Contract data:', data);
-}
+function ContractCon() {
+  const [recipientAddress, setRecipientAddress] = useState(""); // State to store recipient address
+  const [transferAmount, setTransferAmount] = useState("");   // State to store transfer amount
+  const [transactionHash, setTransactionHash] = useState(""); // State to store transaction hash
 
-// Send a transaction to a contract method
-async function sendDataToContract(value) {
-  const accounts = await web3.eth.getAccounts();
-  await contract.methods.setData(value).send({ from: accounts[0] });
-  console.log('Transaction sent');
-}
-getContractData();
-sendDataToContract();
-return (
-  <section>
-  data;
-  
-  account;
-  </section>
-);
+  // Function to transfer ERC-20 tokens
+  const transferTokens = async () => {
+    try {
+      const accounts = await web3.eth.getAccounts();
+
+      // Replace 'YourTokenContractMethod' with the actual transfer method of your ERC-20 contract
+      const transaction = await contract.methods
+        .transfer(recipientAddress, web3.utils.toWei(transferAmount, 'ether'))
+        .send({ from: accounts[0] });
+
+      setTransactionHash(transaction.transactionHash);
+    } catch (error) {
+      console.error('Error transferring tokens:', error);
+    }
+  };
+
+  return (
+    <section>
+      <h2>Transfer ERC-20 Tokens</h2>
+      <div>
+        <label>Recipient Address:</label>
+        <input
+          type="text"
+          className="text-black"
+          value={recipientAddress}
+          onChange={(e) => setRecipientAddress(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Transfer Amount:</label>
+        <input
+          type="text"
+          className="text-black"
+          value={transferAmount}
+          onChange={(e) => setTransferAmount(e.target.value)}
+        />
+      </div>
+      <button onClick={transferTokens}>Transfer Tokens</button>
+      {transactionHash && (
+        <div>
+          <p>Transaction Hash: {transactionHash}</p>
+        </div>
+      )}
+    </section>
+  );
 }
 
 export default ContractCon;

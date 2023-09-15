@@ -1,6 +1,8 @@
 
 import './index.css'
+//import ContractCon from './pages/ContractCon'
 import MetaMaskIntegration from './pages/MetaMaskIntegration'
+//import MetaMaskIntegration from './pages/MetaMaskIntegration'
 
 function App() {
  
