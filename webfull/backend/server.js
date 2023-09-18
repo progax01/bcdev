@@ -13,10 +13,31 @@ const upload = multer({
     }
 })
 
+////
+// const axios = require("axios")
+
+// const axiosInstance = axios.create({
+// 	baseURL: "https://api.starton.com",
+// 	headers: {
+// 		"x-api-key": "PUT HERE YOUR API KEY",
+// 	},
+// })
+
+// axiosInstance.post(
+// 	"/v3/smart-contract/polygon-mumbai/0x189112E8912e2075fE89606a0e60E5D3991370cE/read",
+// 	{
+// 		functionName: "DEFAULT_ADMIN_ROLE",
+// 		params: []
+// 	}
+// ).then((response) => {
+// 	console.log(response.data)
+// })
+
+///
 const starton = axios.create({
     baseURL: "https://api.starton.io/v3",
     headers: {
-        "x-api-key": "sk_live_dd49df13-879d-4f85-81fa-a90881bb4b54",
+        "x-api-key": "sk_live_1cf89309-2408-4526-ac8a-92e83dc0a7d2",
     },
   })
 
@@ -24,7 +45,7 @@ const starton = axios.create({
    
     let data = new FormData();
     const blob = new Blob([req.file.buffer],{type:req.file.mimetype});
-    data.append("file",blob,{filename:req.file.originalnam})
+    data.append("file",blob,{filename:req.file.originalname})
     data.append("isSync","true");
 
     async function uploadImageOnIpfs(){
@@ -35,8 +56,8 @@ const starton = axios.create({
     }
     async function uploadMetadataOnIpfs(imgCid){
         const metadataJson = {
-            name: `A Wonderful NFT`,
-            description: `Probably the most awesome NFT ever created !`,
+            name: `My owned NFT`,
+            description: `My created NFT !`,
             image: `ipfs://ipfs/${imgCid}`,
         }
         const ipfsMetadata = await starton.post("/ipfs/json", {
@@ -48,8 +69,8 @@ const starton = axios.create({
     }
     
     const SMART_CONTRACT_NETWORK="polygon-mumbai"
-    const SMART_CONTRACT_ADDRESS="0x0245C4fA1b848e49e257c49a620B0e05c3F0bDE0"
-    const WALLET_IMPORTED_ON_STARTON="0x95008b0CB1FfCcFb240De7747631Dc2EBA6F3b15";
+    const SMART_CONTRACT_ADDRESS="0x189112E8912e2075fE89606a0e60E5D3991370cE"
+    const WALLET_IMPORTED_ON_STARTON="0xF752bFdd8ac2b287F3481393C7001538909f13A0";
     async function mintNFT(receiverAddress,metadataCid){
         const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`, {
             functionName: "mint",
@@ -59,7 +80,7 @@ const starton = axios.create({
         })
         return nft.data;
     }
-    const RECEIVER_ADDRESS = "0x4653CeA34af4B3cF4B27C912A5BBEE015b9E7Fb0"
+    const RECEIVER_ADDRESS = "0x5B9E995108c51457De3F6FDd9D80D71C517e244F"
     const ipfsImgData = await uploadImageOnIpfs();
     const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
     const nft = await mintNFT(RECEIVER_ADDRESS,ipfsMetadata.cid)
