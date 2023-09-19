@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<!-- 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB,0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db,0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Merkletree</title>
+    <h1>Hello</h1>
+    <h1>Merkle Tree</h1>
+    <label for="whitelistAddress">Enter Whitelist Address:</label>
+    <input type="textarea" id="inputField" placeholder="eg 0x..,0x..">
+    <button onclick="calculateMerkleTree()">Calculate Merkle Tree</button>
+    <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const addresses=[];
+      function calculateMerkleTree() {
+        const inputField = document.getElementById("inputField");
+      const inputValues = inputField.value.split(",").map(value => value.trim());
+      addresses.push(...inputValues);
+            
+            const leaves = addresses.map(x => keccak256(x))
+            const tree = new MerkleTree(leaves, keccak256, { sortPairs: true })
+            const buf2hex = x => '0x' + x.toString('hex')
+            const myaddress = '0x1C541e05a5A640755B3F1B2434dB4e8096b8322f';
+            console.log(buf2hex(tree.getRoot()))
+
+            const leaf = keccak256(myaddress) // address from wallet using walletconnect/metamask
+            console.log("leaf", buf2hex(leaf))
+            console.log("leaves", addresses.map(x => buf2hex(keccak256(x))));
+            const proof = tree.getProof(leaf).map(x => buf2hex(x.data))
+            console.log(proof)
+
+            document.getElementById("leaves").textContent = addresses.map(x => buf2hex(keccak256(x)));
+            document.getElementById("proofData").textContent = proof.join(', ');
+            document.getElementById("proof").textContent = tree.getProof(leaf).map(x => buf2hex(x.data));
+        }
+        // contract.methods.safeMint(myaddress, proof).send({ from: address }) // will be called on click of the mint button
+    </script>
+</body>
+
+</html>

@@ -386,7 +386,7 @@ function MetaMaskIntegration() {
 
       setTransactionStatus("Completed");
       const txhash = await web3.eth.sendTransaction(transferParams);
-      setTransactionHash(txhash);
+      setTransactionHash(txhash.transactionHash.toString());
     } catch (error) {
       console.error("Error transferring tokensadsf:", error);
       setTransactionStatus("Failed");
@@ -431,7 +431,7 @@ function MetaMaskIntegration() {
       data: tokenContract.methods.mint(mintAddress, mintAmount).encodeABI(),
     };
     const MintHash = await web3.eth.sendTransaction(txobj);
-    setminthash(MintHash);
+    setminthash(MintHash.transactionHash.toString());
     fetchTokenBalance();
   };
 

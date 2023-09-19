@@ -1,16 +1,16 @@
 const express = require('express');
 const { ethers,JsonRpcProvider,parseEther } = require('ethers');
 
-const provider = new JsonRpcProvider("https://sepolia.infura.io/v3/d1ca998e042a43219dbc26662e0546c0");
-
+require("dotenv").config();
+const provider = new JsonRpcProvider("https://sepolia.infura.io/v3/da8932a090e84bc8ac665b643d5bf539");
 const app = express();
 const port = 3000;
 app.use(express.json());
 
-const privateKey = "0x37b0abb593520621efb356e310e682ba34082b3d4bbb8ea35fc463c38120f2fd";
-const ownerAddress = "0x6d77FA0c0cc1181ba128a25e25594f004e03a141";
+const privateKey = process.env.SIGN_PV_KEY;
+const ownerAddress = process.env.OWNR;
 
-app.get('/connect-to-ethereum-node', async (req, res) => {
+app.get('/connect-to-ethereum', async (req, res) => {
   try {
     const network = await provider.getNetwork();
     res.json({ network });
@@ -29,7 +29,7 @@ app.post('/getBalance', async (req, res) => {
     }
 });
 
-app.post('/generate-ethereum-account', (req, res) => {
+app.post('/generate-account', (req, res) => {
     try {
       const wallet = ethers.Wallet.createRandom();
       res.json({
@@ -54,7 +54,7 @@ app.post('/generate-ethereum-account', (req, res) => {
     }
   });
 
-  app.post('/send-ethereum-transaction', async (req, res) => {
+  app.post('/send-transaction', async (req, res) => {
     try {
       const {recipientAddress, amountInEther} = req.body;
       const wallet = new ethers.Wallet(privateKey, provider);
