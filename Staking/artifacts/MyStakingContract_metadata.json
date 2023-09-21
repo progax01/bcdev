@@ -45,6 +45,16 @@
 						"internalType": "uint256",
 						"name": "startTime",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "userads",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "isClaimed",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -94,6 +104,16 @@
 								"internalType": "uint256",
 								"name": "startTime",
 								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "userads",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "isClaimed",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct MyStakingContract.Stake[]",
@@ -114,6 +134,16 @@
 				],
 				"name": "calculateReward",
 				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
 					{
 						"internalType": "uint256",
 						"name": "",
@@ -172,6 +202,16 @@
 								"internalType": "uint256",
 								"name": "startTime",
 								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "userads",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "isClaimed",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct MyStakingContract.Stake",
@@ -180,6 +220,32 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userid",
+						"type": "uint256"
+					}
+				],
+				"name": "claimReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userid",
+						"type": "uint256"
+					}
+				],
+				"name": "claimStakedAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -237,6 +303,16 @@
 								"internalType": "uint256",
 								"name": "startTime",
 								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "userads",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "isClaimed",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct MyStakingContract.Stake",
@@ -294,6 +370,16 @@
 						"internalType": "uint256",
 						"name": "startTime",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "userads",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "isClaimed",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -384,11 +470,11 @@
 			]
 		},
 		"NewStakeing.sol": {
-			"keccak256": "0x80b4e1c1ec8dd6272ad7ab0f04a9a3e0e75063e776edb9b30fb31ac5ac04a659",
+			"keccak256": "0x3a73f93b4439df656802b4d89040fba6d968174ab8900d9f251389f223bf3042",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d14ad730f09505a8701a7be12f4f00b2c7a53acaec331278d8c111690bc0416f",
-				"dweb:/ipfs/QmT4cbppXYkNMGdM7PBzzRZFosuYLcdscu8cem1gyKi2Ko"
+				"bzz-raw://b0540c9da822ce7aaa9795fb583980f0facff9c877efbf03013dcbdebe2da310",
+				"dweb:/ipfs/QmTEkJ5v85WrSDUNQVR2iDaUW7fUonUCkCJ8creyeVK2Cz"
 			]
 		}
 	},

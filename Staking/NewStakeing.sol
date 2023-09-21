@@ -22,6 +22,8 @@ contract MyStakingContract {
         uint256 amount;
         uint256 duration;
         uint256 startTime;
+        address userads;
+         bool isClaimed;
     }
   
     mapping(address => Stake[]) public userStakes; 
@@ -39,7 +41,7 @@ contract MyStakingContract {
             "Enter Duration in formate check duration" );
 
         tokenIdCounter.current();
-        Stake memory newStake = Stake(tokenIdCounter.current(), amount, duration, block.timestamp);
+        Stake memory newStake = Stake(tokenIdCounter.current(), amount, duration, block.timestamp, msg.sender,false);
         userStakes[msg.sender].push(newStake);
         token.transferFrom(msg.sender, address(this), amount);
         Cid[tokenIdCounter.current()]=newStake;
@@ -63,13 +65,9 @@ contract MyStakingContract {
     }
 
 
- function calculateReward(uint256 userid) public view returns (uint256, uint256)
+ function calculateReward(uint256 userid) public view returns (address,uint256, uint256, uint256)
     {
-        
-
-       Cid[userid];
-        
-
+       
         uint256 endTime = block.timestamp;
 
         uint256 duration = endTime -  Cid[userid].startTime;
@@ -81,11 +79,36 @@ contract MyStakingContract {
         // For example, a simple linear reward of 1 token per second.
         uint256 reward = duration * 1;
 
-        return (reward, (reward +  Cid[userid].amount));
+        return (Cid[userid].userads, Cid[userid].tokenIdc, reward, (reward +  Cid[userid].amount));
     }
 
 
-    
+    function claimReward(uint256 userid) public {
+        require(msg.sender == Cid[userid].userads, "You can only claim your own rewards");
+        require(!Cid[userid].isClaimed, "Reward already claimed");
+
+        (address userAddress, uint256 tokenId, uint256 reward, uint256 totalAmount) = calculateReward(userid);
+
+        // Transfer the reward tokens to the user
+        token.transfer(userAddress, reward);
+
+        // Mark the stake as claimed
+        Cid[userid].isClaimed = true;
+    }
+
+    function claimStakedAmount(uint256 userid) public {
+        require(msg.sender == Cid[userid].userads, "You can only claim your own staked amount");
+        require(!Cid[userid].isClaimed, "Reward already claimed");
+        require(block.timestamp >= Cid[userid].startTime + Cid[userid].duration * 1 minutes, "You can only claim after the staking duration has passed");
+
+        (address userAddress, uint256 tokenId, uint256 reward, uint256 totalAmount) = calculateReward(userid);
+
+        // Transfer the staked amount back to the user
+        token.transfer(userAddress, totalAmount);
+
+        // Mark the stake as claimed
+        Cid[userid].isClaimed = true;
+    }
 
 
 }
