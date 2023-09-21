@@ -10,6 +10,9 @@
     <label for="whitelistAddress">Enter Whitelist Address:</label>
     <input type="textarea" id="inputField" placeholder="eg 0x..,0x..">
     <button onclick="calculateMerkleTree()">Calculate Merkle Tree</button>
+    <label for="proofAdd">Leaf Address for Proof</label>
+    <input type="textarea" id="profad" placeholder="0x">
+    <button onclick="proofad()"> Get Proof</button>
     <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
 </head>
@@ -17,12 +20,16 @@
 <body>
     <script type="text/javascript">
         const addresses=[];
+        let profadd;
+        function proofad(){
+            profadd= document.getElementById("profad");
+        }
       function calculateMerkleTree() {
         const inputField = document.getElementById("inputField");
       const inputValues = inputField.value.split(",").map(value => value.trim());
       addresses.push(...inputValues);
-            
-            const leaves = addresses.map(x => keccak256(x))
+            profadd= document.getElementById("profad");
+            const leaves = ( keccak256(profadd))
             const tree = new MerkleTree(leaves, keccak256, { sortPairs: true })
             const buf2hex = x => '0x' + x.toString('hex')
             const myaddress = '0x1C541e05a5A640755B3F1B2434dB4e8096b8322f';
