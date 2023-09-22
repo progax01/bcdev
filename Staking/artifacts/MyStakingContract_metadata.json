@@ -55,6 +55,11 @@
 						"internalType": "bool",
 						"name": "isClaimed",
 						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isAmountc",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -113,6 +118,11 @@
 							{
 								"internalType": "bool",
 								"name": "isClaimed",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAmountc",
 								"type": "bool"
 							}
 						],
@@ -211,6 +221,11 @@
 							{
 								"internalType": "bool",
 								"name": "isClaimed",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAmountc",
 								"type": "bool"
 							}
 						],
@@ -313,6 +328,11 @@
 								"internalType": "bool",
 								"name": "isClaimed",
 								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAmountc",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct MyStakingContract.Stake",
@@ -380,6 +400,11 @@
 						"internalType": "bool",
 						"name": "isClaimed",
 						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isAmountc",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -387,13 +412,17 @@
 			}
 		],
 		"devdoc": {
+			"author": "The name of the author",
+			"details": "Explain to a developer any extra details",
 			"kind": "dev",
 			"methods": {},
+			"title": "A title that should describe the contract/interface",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
 			"methods": {},
+			"notice": "Explain to an end user what this does",
 			"version": 1
 		}
 	},
@@ -470,11 +499,11 @@
 			]
 		},
 		"NewStakeing.sol": {
-			"keccak256": "0x3a73f93b4439df656802b4d89040fba6d968174ab8900d9f251389f223bf3042",
+			"keccak256": "0x999cc7049736bd928d2fc1a76628dbad1a28a4b26146b2b222cddbb2c0813e2c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b0540c9da822ce7aaa9795fb583980f0facff9c877efbf03013dcbdebe2da310",
-				"dweb:/ipfs/QmTEkJ5v85WrSDUNQVR2iDaUW7fUonUCkCJ8creyeVK2Cz"
+				"bzz-raw://8932b30683de2ab393dd5aa99c0452918ba87fba151206903e67478a896ccd8d",
+				"dweb:/ipfs/QmcxE6ureJ4WmiBMu7qE9i8ffxfHDseHeh7fCfpAdX7Gkx"
 			]
 		}
 	},
