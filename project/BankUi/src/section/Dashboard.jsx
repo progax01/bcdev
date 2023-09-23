@@ -5,6 +5,8 @@ import Sidebar from '../component/Sidebar';
 import styled from 'styled-components';
 import Navbar from '../component/Navbar';
 
+import MyForm from './MyForm';
+
 const DashboardContainer = styled.div`
   display: flex;
   padding-top: 64px; /* Adjust for the navbar height */
@@ -20,10 +22,11 @@ const DashboardPage = () => {
     <DashboardContainer>
     <Navbar/>
       <Sidebar />
-      <Content>
+     
         {/* Your dashboard content goes here */}
-        <h1>Welcome to the Dashboard</h1>
-      </Content>
+      <h1> </h1>
+    <MyForm/>
+      
     </DashboardContainer>
   );
 };

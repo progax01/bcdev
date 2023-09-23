@@ -491,7 +491,7 @@ function MetaMaskIntegration() {
       </div>
       <div className="side">
         mint function
-        <div className="gap-4">
+        <div className="gap-4 ">
           <label>Mint owner Address:</label>
           <input
             type="text"

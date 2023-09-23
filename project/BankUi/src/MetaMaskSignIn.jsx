@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Web3 from "web3";
 import { useNavigate } from "react-router-dom";
+import "./index.css";
 function MetaMaskSignIn() {
   const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState(null);
@@ -38,16 +39,16 @@ function MetaMaskSignIn() {
    
 
   return (
-    <div>
+    <div className="bg-red-500 ">
     <h1>Wellcome</h1>
-    <h2>MetaMask Sign-In</h2>
+    <h2 className="gap-5 text-lg ">MetaMask Sign-In Required</h2>
     {account ? (
       <div>
         <p>Connected Account: {account}</p>
-        <button onClick={handleSignIn}>Enter Site</button>
+        <button className="gap-5 p-2 bg-amber-300" onClick={handleSignIn}>Enter Site</button>
       </div>
     ) : (
-      <p>Connect to MetaMask to sign in.</p>
+      <p className="gap-5 text-red">Install and Connect to MetaMask to Enter Site.</p>
     )}
   </div>
   );
