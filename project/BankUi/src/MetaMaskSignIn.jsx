@@ -39,7 +39,7 @@ function MetaMaskSignIn() {
    
 
   return (
-    <div className="bg-red-500 ">
+    <div className= " ">
     <h1>Wellcome</h1>
     <h2 className="gap-5 text-lg ">MetaMask Sign-In Required</h2>
     {account ? (

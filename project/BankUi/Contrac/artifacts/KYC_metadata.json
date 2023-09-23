@@ -6,77 +6,48 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "firstName",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "lastName",
-						"type": "string"
-					}
-				],
-				"name": "KYCVerified",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "previousOwner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "newOwner",
-						"type": "address"
-					}
-				],
-				"name": "OwnershipTransferred",
-				"type": "event"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "userAddress",
+						"name": "getAddress",
 						"type": "address"
 					}
 				],
 				"name": "getKYCData",
 				"outputs": [
 					{
+						"internalType": "address",
+						"name": "_userAddress",
+						"type": "address"
+					},
+					{
 						"internalType": "bool",
-						"name": "isVerified",
+						"name": "_isVerified",
 						"type": "bool"
 					},
 					{
 						"internalType": "string",
-						"name": "firstName",
+						"name": "_FullName",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "lastName",
+						"name": "_Email",
 						"type": "string"
 					},
 					{
+						"internalType": "uint256",
+						"name": "_Phone",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_Aadhar",
+						"type": "uint256"
+					},
+					{
 						"internalType": "string",
-						"name": "documentHash",
+						"name": "_Location",
 						"type": "string"
 					}
 				],
@@ -87,81 +58,32 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kycRecords",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "isVerified",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "firstName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "lastName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "documentHash",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "userAddress",
+						"name": "userAds",
 						"type": "address"
 					},
 					{
-						"internalType": "bool",
-						"name": "isVerified",
-						"type": "bool"
-					},
-					{
 						"internalType": "string",
-						"name": "firstName",
+						"name": "FullName",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "lastName",
+						"name": "Email",
 						"type": "string"
 					},
 					{
+						"internalType": "uint256",
+						"name": "Phone",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Aadhar",
+						"type": "uint256"
+					},
+					{
 						"internalType": "string",
-						"name": "documentHash",
+						"name": "Location",
 						"type": "string"
 					}
 				],
@@ -174,20 +96,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "newOwner",
-						"type": "address"
-					}
-				],
-				"name": "transferOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "userAddress",
+						"name": "verifyAddress",
 						"type": "address"
 					}
 				],
@@ -205,17 +114,7 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {
-				"owner()": {
-					"details": "Returns the address of the current owner."
-				},
-				"renounceOwnership()": {
-					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
-				},
-				"transferOwnership(address)": {
-					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
-				}
-			},
+			"methods": {},
 			"version": 1
 		},
 		"userdoc": {
@@ -240,28 +139,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/access/Ownable.sol": {
-			"keccak256": "0xba43b97fba0d32eb4254f6a5a297b39a19a247082a02d6e69349e071e2946218",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://fc980984badf3984b6303b377711220e067722bbd6a135b24669ff5069ef9f32",
-				"dweb:/ipfs/QmPHXMSXj99XjSVM21YsY6aNtLLjLVXDbyN76J5HQYvvrz"
-			]
-		},
-		"@openzeppelin/contracts/utils/Context.sol": {
-			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
-				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
-			]
-		},
 		"Kyc.sol": {
-			"keccak256": "0xd07fa62b57ac61c33ed5092febfea0d177105ec0bb640b0266ed60bd1e32c69a",
+			"keccak256": "0x290d52e7f361bb4b8c0a43ce2198906fc20ac0a23d73326da5aea2517082bf7e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2bfc5955f36539d5c427d51281c14adfe3afb9c933b27f3be7485e90c2b792d4",
-				"dweb:/ipfs/QmSS5fEAhf6NZPGz54Ud3nd3iP9S8MoPaV3pjjK63fbXUc"
+				"bzz-raw://5f3e2a11c4c237a103baa92b3d4d1398197d7aa0faeabcd12aec3b329e4c33ac",
+				"dweb:/ipfs/QmZzhHvHihqZ3TJxEfhSYKC8LUbHSF62Vp1tqSuSFhj32i"
 			]
 		}
 	},

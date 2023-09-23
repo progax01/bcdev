@@ -9,12 +9,12 @@ import MyForm from './MyForm';
 
 const DashboardContainer = styled.div`
   display: flex;
-  padding-top: 64px; /* Adjust for the navbar height */
+  padding-top: 120px; /* Adjust for the navbar height */
 `;
 
 const Content = styled.div`
   flex-grow: 1;
-  padding: 20px;
+  padding: 40px;
 `;
 
 const DashboardPage = () => {
