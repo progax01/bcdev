@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from 'react';
+import { React,  useState } from 'react';
 import getKYCData from './ContractInteraction'; // Import the modified component
 import Layout from '../component/Layout';
 function ViewKyc() {
@@ -46,7 +46,7 @@ function ViewKyc() {
           id="address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          className="w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-4 py-2 border  rounded-md focus:outline-none focus:border-blue-500"
         />
         <button
           onClick={handleGetKYC}

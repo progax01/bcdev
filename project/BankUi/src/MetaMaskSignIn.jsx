@@ -44,7 +44,7 @@ function MetaMaskSignIn() {
     <div className= " overlay">
     <video src={Myvdo} autoPlay loop muted playbackrate={2}/>
     <div className="content">
-    <h1>Wellcome</h1>
+    <h1>Welcome</h1>
     <h2 className="gap-[5] p-5 text-lg ">MetaMask Sign-In Required</h2>
     {account ? (
       <div>

@@ -5,43 +5,45 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ContractConnect from "./ContractConnect";
 import Layout from "../component/Layout";
-import uploadImage from "../component/PinataFile";
+// import uploadImage from "../component/PinataFile";
+// import { uploadImageToIPFS } from "./IPFSUtils";
 
 const MyForm = () => {
   const [transHash, settransHash] = useState("null");
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState(null);
-const [error, setError]= useState(null);
+  const [error, setError]= useState(null);
+  const [imgcid, setimgcid]= useState(null);
 
-const handleImageUpload =  (e) => {
-  const file = e.target.files[0];
+// const handleImageUpload =  (e) => {
+//   const file = e.target.files[0];
 
-  try {
-    if (!file) {
-      // Provide a more informative error message for empty file uploads
-      toast.error("Please select a valid image file.", { position: "top-right" });
-       // Return early to prevent further execution
-    }
+//   try {
+//     if (!file) {
+//       // Provide a more informative error message for empty file uploads
+//       toast.error("Please select a valid image file.", { position: "top-right" });
+//        // Return early to prevent further execution
+//     }
 
-    // Call the uploadImage function with the selected file
-    const uploadResult =  uploadImage(file);
+//     // Call the uploadImage function with the selected file
+//     const uploadResult =  uploadImage(file);
+//     setimgcid(uploadResult);
+//     if (uploadResult) {
+//       console.log(uploadResult);
+//       setError("");
+//     } else {
+//       // Handle upload failure, possibly with an error message from uploadResult
+//       setError(uploadResult.error || "Error in uploading file.");
+//     }
+//   } catch (error) {
+//     console.error(error);
 
-    if (uploadResult) {
-      console.log(uploadResult);
-      setError("");
-    } else {
-      // Handle upload failure, possibly with an error message from uploadResult
-      setError(uploadResult.error || "Error in uploading file.");
-    }
-  } catch (error) {
-    console.error(error);
-
-    // Handle unexpected errors
-    toast.error("An error occurred. Please try again later.", {
-      position: "top-right",
-    });
-  }
-};
+//     // Handle unexpected errors
+//     toast.error("An error occurred. Please try again later.", {
+//       position: "top-right",
+//     });
+//   }
+// };
   // Validation for Aadhar
   const d = [
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -66,6 +68,7 @@ const handleImageUpload =  (e) => {
     [2, 7, 9, 3, 8, 0, 6, 4, 1, 5],
     [7, 0, 4, 6, 9, 1, 3, 2, 5, 8],
   ];
+
   const aadharNumberValidation = Yup.string()
     .matches(/^\d{12}$/, "Aadhar number must be 12 digit only")
     .required("Aadhar is required")
@@ -146,8 +149,8 @@ const handleImageUpload =  (e) => {
 
   const handleSubmit = async (values) => {
     console.log("Form values:", values);
-    const imageCID = await uploadImageToPinata(imageFile);
-    console.log(imageCID);
+    // const imageCID = imgcid;
+    // console.log(imageCID);
 
     let processToastId;
     try {
@@ -210,7 +213,7 @@ const handleImageUpload =  (e) => {
             <Field
               type="text"
               name="fullName"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-blua-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none  focus:border-blue-500"
             />
             <ErrorMessage
               name="fullName"
@@ -228,7 +231,7 @@ const handleImageUpload =  (e) => {
             <Field
               type="text"
               name="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none  focus:border-blue-500"
             />
             <ErrorMessage
               name="email"
@@ -246,7 +249,7 @@ const handleImageUpload =  (e) => {
             <Field
               type="tel"
               name="phoneNumber"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none  focus:border-blue-500"
             />
             <ErrorMessage
               name="phoneNumber"
@@ -264,7 +267,7 @@ const handleImageUpload =  (e) => {
             <Field
               type="number"
               name="aadharNumber"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none  focus:border-blue-500"
             />
             <ErrorMessage
               name="aadharNumber"
@@ -282,7 +285,7 @@ const handleImageUpload =  (e) => {
             <Field
               type="text"
               name="location"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none  focus:border-blue-500"
             />
             <ErrorMessage
               name="location"
@@ -290,20 +293,22 @@ const handleImageUpload =  (e) => {
               className="text-red-500 mt-1"
             />
           </div>
+{/*
           <div>
                 <label htmlFor="image">Upload Image:</label>
                 <input
                     type="file"
                     id="image"
                     accept="image/*"
-                    onChange={handleImageUpload}
+                  
                 />
                    {error && <p className="text-red-500 mt-2">{error}</p>}
             </div>
+  */}
           <div className="mb-4">
             <button
               type="submit"
-              className="w-full bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+              className="w-full bg-blue-800  py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
             >
               Submit
             </button>
