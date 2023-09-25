@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Web3 from "web3";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import Myvdo from "./assets/videoplayback.mp4";
+
 function MetaMaskSignIn() {
   const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState(null);
@@ -39,17 +41,20 @@ function MetaMaskSignIn() {
    
 
   return (
-    <div className= " ">
+    <div className= " overlay">
+    <video src={Myvdo} autoPlay loop muted playbackrate={2}/>
+    <div className="content">
     <h1>Wellcome</h1>
-    <h2 className="gap-5 text-lg ">MetaMask Sign-In Required</h2>
+    <h2 className="gap-[5] p-5 text-lg ">MetaMask Sign-In Required</h2>
     {account ? (
       <div>
-        <p>Connected Account: {account}</p>
-        <button className="gap-5 p-2 bg-amber-300" onClick={handleSignIn}>Enter Site</button>
+        <p className="text-lg text-bold">Connected Account: {account}</p>
+        <button className="gap-5 p-2 mt-5 bg-[#73acbc] text-black" onClick={handleSignIn}>Enter Site</button>
       </div>
     ) : (
       <p className="gap-5 text-red">Install and Connect to MetaMask to Enter Site.</p>
     )}
+    </div>
   </div>
   );
 }

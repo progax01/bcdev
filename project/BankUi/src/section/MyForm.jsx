@@ -4,11 +4,44 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ContractConnect from "./ContractConnect";
+import Layout from "../component/Layout";
+import uploadImage from "../component/PinataFile";
 
 const MyForm = () => {
   const [transHash, settransHash] = useState("null");
   const [loading, setLoading] = useState(false);
+  const [imageFile, setImageFile] = useState(null);
+const [error, setError]= useState(null);
 
+const handleImageUpload =  (e) => {
+  const file = e.target.files[0];
+
+  try {
+    if (!file) {
+      // Provide a more informative error message for empty file uploads
+      toast.error("Please select a valid image file.", { position: "top-right" });
+       // Return early to prevent further execution
+    }
+
+    // Call the uploadImage function with the selected file
+    const uploadResult =  uploadImage(file);
+
+    if (uploadResult) {
+      console.log(uploadResult);
+      setError("");
+    } else {
+      // Handle upload failure, possibly with an error message from uploadResult
+      setError(uploadResult.error || "Error in uploading file.");
+    }
+  } catch (error) {
+    console.error(error);
+
+    // Handle unexpected errors
+    toast.error("An error occurred. Please try again later.", {
+      position: "top-right",
+    });
+  }
+};
   // Validation for Aadhar
   const d = [
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -35,6 +68,7 @@ const MyForm = () => {
   ];
   const aadharNumberValidation = Yup.string()
     .matches(/^\d{12}$/, "Aadhar number must be 12 digit only")
+    .required("Aadhar is required")
     .test("aadhar-number", "Invalid Aadhar number", (value) => {
       if (!value) return true; // Let Yup handle required validation if needed
 
@@ -81,12 +115,25 @@ const MyForm = () => {
         }
         return true;
       }),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    phoneNumber: Yup.string()
-      .matches(/^\d{10}$/, "Invalid phone number")
-      .required("Phone Number is required"),
+      email: Yup.string()
+      .required("Email cannot be empty")
+      .test("whitespace", "Cannot contain whitespace.", (value) => !/\s/.test(value))
+      .test("hyphens-underscores", "Cannot contain more than 2 hyphens or underscores.", (value) => {
+        const hyphensCount = (value.match(/-/g) || []).length;
+        const underscoresCount = (value.match(/_/g) || []).length;
+        return hyphensCount <= 2 && underscoresCount <= 2;
+      })
+      .test("special-characters", "Special characters not allowed.", (value) => !/[+=`{},!?;:'"#%^&*()<>|/\\]/.test(value))
+      .test("email-format", "Invalid email format", (value) => /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(value)),
+      phoneNumber: Yup.string()
+      .required("Phone number cannot be empty")
+      .matches(/^[6789]/, "Enter Indian No. starts 6, 7, 8, 9")
+      .test("no-special-chars", "Special characters not allowed", (value) => !/[-+=`{},.!?;:'"@#$%^&*()<>|\/]/.test(value))
+      .test("no-whitespace", "Remove whitespace", (value) => !/\s+/.test(value))
+      .test("no-alphabets", "Characters cannot be used", (value) => !/[a-zA-Z]/.test(value))
+      .matches(/^\d{10}$/, "Exactly 10 digits allowed"),
     aadharNumber: aadharNumberValidation,
-    location: Yup.string().required("Full Name is required"),
+    location: Yup.string().required("Full address required").min(9, "Address too short enter full address"),
   });
 
   const initialValues = {
@@ -99,6 +146,9 @@ const MyForm = () => {
 
   const handleSubmit = async (values) => {
     console.log("Form values:", values);
+    const imageCID = await uploadImageToPinata(imageFile);
+    console.log(imageCID);
+
     let processToastId;
     try {
       // Validate the form data
@@ -141,6 +191,7 @@ const MyForm = () => {
     }
   };
   return (
+    <Layout>
     <div className="w-full max-w-md mx-auto p-6">
       <h2 className="text-2xl font-semibold mb-4">KYC Form</h2>
       <Formik
@@ -159,7 +210,7 @@ const MyForm = () => {
             <Field
               type="text"
               name="fullName"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-black focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-blua-500"
             />
             <ErrorMessage
               name="fullName"
@@ -177,7 +228,7 @@ const MyForm = () => {
             <Field
               type="text"
               name="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-black focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
             />
             <ErrorMessage
               name="email"
@@ -193,9 +244,9 @@ const MyForm = () => {
               Phone Number:
             </label>
             <Field
-              type="text"
+              type="tel"
               name="phoneNumber"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-black focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
             />
             <ErrorMessage
               name="phoneNumber"
@@ -213,7 +264,7 @@ const MyForm = () => {
             <Field
               type="number"
               name="aadharNumber"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-black focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
             />
             <ErrorMessage
               name="aadharNumber"
@@ -231,7 +282,7 @@ const MyForm = () => {
             <Field
               type="text"
               name="location"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none text-black focus:border-yellow-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none text-white focus:border-yellow-500"
             />
             <ErrorMessage
               name="location"
@@ -239,10 +290,20 @@ const MyForm = () => {
               className="text-red-500 mt-1"
             />
           </div>
+          <div>
+                <label htmlFor="image">Upload Image:</label>
+                <input
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                />
+                   {error && <p className="text-red-500 mt-2">{error}</p>}
+            </div>
           <div className="mb-4">
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+              className="w-full bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
             >
               Submit
             </button>
@@ -250,6 +311,7 @@ const MyForm = () => {
         </Form>
       </Formik>
     </div>
+      </Layout>
   );
 };
 
