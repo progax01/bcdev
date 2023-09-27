@@ -1,5 +1,6 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier:MIT
+
+pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
@@ -22,10 +23,10 @@ function _baseURI() internal pure override returns (string memory) {
     function mintNFT() public payable {
         require(msg.value == mintingFee, "Insufficient ether sent");
           uint256 tokenId = _tokenIdCounter.current();
-         
-        string memory mytokenURI = string(abi.encodePacked(_baseURI(), tokenId.toString(),".json"));
+         string memory baseuri= _baseURI();
+        //string memory mytokenURI = string(abi.encodePacked(baseuri, tokenId.toString() ,".json"));
         _mint(msg.sender, tokenId);
-        tokenURI(tokenId,mytokenURI);
+        //tokenURI(tokenId,mytokenURI);
         payable (address(this).transfer(msg.value));
         TokenBuyAmount[msg.sender][tokenId]=msg.value;
         _tokenIdCounter.increment();
