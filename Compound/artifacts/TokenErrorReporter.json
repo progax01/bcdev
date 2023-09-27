@@ -1,0 +1,85 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820777b42307dfc902daa37e4e93cebaa064f0aaed3691dbce076ca00eb941fdbd864736f6c634300050e0032",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723158 KECCAK256 PUSH24 0x7B42307DFC902DAA37E4E93CEBAA064F0AAED3691DBCE076 0xCA STOP 0xEB SWAP5 0x1F 0xDB 0xD8 PUSH5 0x736F6C6343 STOP SDIV 0xE STOP ORIGIN ",
+			"sourceMap": "2446:5381:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2446:5381:0;;;;;;;"
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "6080604052600080fdfea265627a7a72315820777b42307dfc902daa37e4e93cebaa064f0aaed3691dbce076ca00eb941fdbd864736f6c634300050e0032",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723158 KECCAK256 PUSH24 0x7B42307DFC902DAA37E4E93CEBAA064F0AAED3691DBCE076 0xCA STOP 0xEB SWAP5 0x1F 0xDB 0xD8 PUSH5 0x736F6C6343 STOP SDIV 0xE STOP ORIGIN ",
+			"sourceMap": "2446:5381:0:-;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12400",
+				"executionCost": "66",
+				"totalCost": "12466"
+			},
+			"internal": {
+				"fail(enum TokenErrorReporter.Error,enum TokenErrorReporter.FailureInfo)": "infinite",
+				"failOpaque(enum TokenErrorReporter.Error,enum TokenErrorReporter.FailureInfo,uint256)": "infinite"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "error",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "info",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "detail",
+					"type": "uint256"
+				}
+			],
+			"name": "Failure",
+			"type": "event"
+		}
+	]
+}

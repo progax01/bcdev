@@ -1,0 +1,40 @@
+{
+	"compiler": {
+		"version": "0.5.14+commit.01f1aaa4"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"author": "Compound",
+			"methods": {},
+			"title": "Careful Math"
+		},
+		"userdoc": {
+			"methods": {},
+			"notice": "Derived from OpenZeppelin's SafeMath library        https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol"
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"comptroller.sol": "CarefulMath"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"comptroller.sol": {
+			"keccak256": "0x5460b89381d9270439aa82d77fbf5c2c6aeddde6d5a90887d29512b8ba5804b5",
+			"urls": [
+				"bzz-raw://898b66fd7250760c6ca41e13049bdee493058a3e90e1c53d1869517014233606",
+				"dweb:/ipfs/Qmf7W2ASx5sMWoMch5YdD4LgR3EqUvEDF9pm3hT6iZ5Msz"
+			]
+		}
+	},
+	"version": 1
+}

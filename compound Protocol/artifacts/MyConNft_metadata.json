@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
@@ -606,7 +606,7 @@
 		"compilationTarget": {
 			"nfttest2.sol": "MyConNft"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -731,11 +731,11 @@
 			]
 		},
 		"nfttest2.sol": {
-			"keccak256": "0x9f602956e883b15e96ab70f65f6ae0d48575ad0cefccef05914b5e0fac043655",
+			"keccak256": "0x377ee825eafc9c361a7bac9d78c355abeacc457f368fa9271fea717d12292a7b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ec2700c6a528a882cf765dd71fe778f4436d28d172c52b2f682842cbaf70d6f5",
-				"dweb:/ipfs/QmTJ2ebjyeuHWcEvx5Qmp4NmLVFPA61J9b5h1HQdF9KKPr"
+				"bzz-raw://e4c65faafbfaf29a93fd96705280a69f4ed82faabbd4ffc58a6eec25dc9118d7",
+				"dweb:/ipfs/Qmc9yoTz1ERojchEvgWVMbPWRcUuG7FqGKKM57KqPefZCw"
 			]
 		}
 	},

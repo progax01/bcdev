@@ -1,0 +1,88 @@
+{
+	"compiler": {
+		"version": "0.5.14+commit.01f1aaa4"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "contract CToken",
+						"name": "cToken",
+						"type": "address"
+					}
+				],
+				"name": "getUnderlyingPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "isPriceOracle",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"getUnderlyingPrice(address)": {
+					"params": {
+						"cToken": "The cToken to get the underlying price of"
+					},
+					"return": "The underlying asset price mantissa (scaled by 1e18). Zero means the price is unavailable."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {
+				"getUnderlyingPrice(address)": {
+					"notice": "Get the underlying price of a cToken asset"
+				},
+				"isPriceOracle()": {
+					"notice": "Indicator that this is a PriceOracle contract (for inspection)"
+				}
+			}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"comptroller.sol": "PriceOracle"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"comptroller.sol": {
+			"keccak256": "0x5460b89381d9270439aa82d77fbf5c2c6aeddde6d5a90887d29512b8ba5804b5",
+			"urls": [
+				"bzz-raw://898b66fd7250760c6ca41e13049bdee493058a3e90e1c53d1869517014233606",
+				"dweb:/ipfs/Qmf7W2ASx5sMWoMch5YdD4LgR3EqUvEDF9pm3hT6iZ5Msz"
+			]
+		}
+	},
+	"version": 1
+}

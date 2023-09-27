@@ -16,7 +16,7 @@ contract MyConNft is ERC721, ERC721Burnable, Ownable {
     mapping(address => mapping(uint => uint)) public tokenBuyAmount;
     mapping(uint => bool) public isTokenDrawn;
 
-    constructor(string memory _baseTokenURI) ERC721("MyNFT", "NFT") {
+    constructor(string memory _baseTokenURI) ERC721("MyCNFT", "CNFT") {
         baseTokenURI = _baseTokenURI;
     }
 

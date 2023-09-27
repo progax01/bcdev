@@ -24,9 +24,9 @@ function _baseURI() internal pure override returns (string memory) {
         require(msg.value == mintingFee, "Insufficient ether sent");
           uint256 tokenId = _tokenIdCounter.current();
          string memory baseuri= _baseURI();
-        //string memory mytokenURI = string(abi.encodePacked(baseuri, tokenId.toString() ,".json"));
+        string memory mytokenURI = string(abi.encodePacked(baseuri, Strings.toString(tokenId) ,".json"));
         _mint(msg.sender, tokenId);
-        //tokenURI(tokenId,mytokenURI);
+        tokenURI(tokenId,mytokenURI);
         payable (address(this).transfer(msg.value));
         TokenBuyAmount[msg.sender][tokenId]=msg.value;
         _tokenIdCounter.increment();
