@@ -168,7 +168,11 @@ contract CompoundSupply {
 
 // check token id widhraw done or not
 
-//
+//burn nft
+
+// check -token id  amount maping 
+
+
         require(amount > 0, "Amount must be greater than zero");
         require( cDaiToken.balanceOf(address(this)) >= amount,
             "Insufficient cDAI balance"

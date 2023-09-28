@@ -10,9 +10,18 @@ cUSDC ctkn	JSON	 0x39aa39c021dfbae8fac545936693ac917d5e7563
 old//cDAI	JSON	0xf5dce57282a584d2746faf1593d3121fcac444dc
 
 
+chain id 1337
 
 cdai token       0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643
 dai token stable 0x6B175474E89094C44Da98b954EedeAC495271d0F
 
 https://medium.com/compound-finance/supplying-assets-to-the-compound-protocol-ec2cf5df5aa
 https://github.com/compound-developers/compound-supply-examples/blob/master/contracts/MyContracts.sol
+
+holder usdt  Address: 0xF977814e90dA44bFA03b6295A0616a897441aceC
+
+
+DAI holder Address: 0x075e72a5eDf65F0A5f44699c7654C1a76941Ddc8
+
+
+https://github.com/compound-developers/compound-supply-examples/blob/master/scripts/deploy.js
