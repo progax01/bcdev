@@ -237,7 +237,7 @@
 		"compilationTarget": {
 			"CTokenInterface.sol": "CErc20Interface"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

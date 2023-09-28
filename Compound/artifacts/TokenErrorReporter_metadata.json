@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.14+commit.01f1aaa4"
+		"version": "0.5.12+commit.7709ece9"
 	},
 	"language": "Solidity",
 	"output": {
@@ -42,7 +42,7 @@
 		"compilationTarget": {
 			"comptroller.sol": "TokenErrorReporter"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,

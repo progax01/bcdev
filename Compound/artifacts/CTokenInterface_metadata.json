@@ -1129,7 +1129,7 @@
 		"compilationTarget": {
 			"CTokenInterface.sol": "CTokenInterface"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

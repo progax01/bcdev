@@ -38,7 +38,7 @@
 		"compilationTarget": {
 			"CTokenInterface.sol": "CDelegationStorage"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

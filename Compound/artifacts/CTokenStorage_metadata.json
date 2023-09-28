@@ -251,7 +251,7 @@
 		"compilationTarget": {
 			"CTokenInterface.sol": "CTokenStorage"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

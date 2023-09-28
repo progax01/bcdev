@@ -96,7 +96,7 @@
 		"compilationTarget": {
 			"CTokenInterface.sol": "CDelegatorInterface"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

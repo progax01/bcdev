@@ -65,10 +65,10 @@
 	},
 	"sources": {
 		"DaiToken.sol": {
-			"keccak256": "0x96534e89473a807a6c48ce84c592651f985acba738ba6e81b2b40450f6c15bfb",
+			"keccak256": "0x034a46d6cc40815fda998564f338b84e0c163526f80dcb74b57f48a46b38a91b",
 			"urls": [
-				"bzz-raw://29a736c032699a43d15d4f8a7a3e2f20bd050d06eda83f07a85fd23f0d176215",
-				"dweb:/ipfs/QmVJ6VPuueyB8mZqXuZXujH1dqQa4afbKnPfC3tPJFXdqY"
+				"bzz-raw://dc4727400de20b75e06886591db8d92c1814c32d654a92975d4c3e64ddb461c9",
+				"dweb:/ipfs/QmdxTURzuVpjVv91RbvxEVSintGK45ScGvBAKh96fNH6oB"
 			]
 		}
 	},

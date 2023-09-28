@@ -1,0 +1,117 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Mycontract.sol": "Name"
+		},
+		"evmVersion": "petersburg",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"CTokenInterface.sol": {
+			"keccak256": "0xb17299250e8238cb98840ccfd0c534f7a4abca7999a4f6a5ef2a2a3334feab58",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://6c6493222d953e5c91a4aaf276bb5d377349b05fce0144d3878f3b5685f6f76f",
+				"dweb:/ipfs/Qmdhuzamv4VxyQg5EXW6siBhKXn552ZiS9UqooZa8ve5HH"
+			]
+		},
+		"Mycontract.sol": {
+			"keccak256": "0x58d746b434ffb40cfc150d3f7ab8f99780d5131b99824b743d974fbb908a10b0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://137c9a20bc753bb90ad1ca117eda0a1dc4e59943ac1717a37c3bdf39961d461a",
+				"dweb:/ipfs/QmRc3fWYdebY9dN7GYSwChwabXEGzeZvb4yRfKv3WsCHbF"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/ComptrollerInterface.sol": {
+			"keccak256": "0x4111ff0414696caca696cf36ecf3add15133933b51ba57c56cfb08989c82d44f",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://bed8b7b5ed928e0bb2056963df31825eafd648ea5313e57b4d12f62a54766e84",
+				"dweb:/ipfs/QmVFrWFGDypompUL6Np68PE7ykdjSNf9DcepLKniJ1fgFk"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/EIP20NonStandardInterface.sol": {
+			"keccak256": "0x5ce25bb36a4ec9490617567a24b55bc813e943bcd4411e060afffe122bea0416",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://ffb7208e6c62875cb0ee30940c5967411c8ddf6b259d52a445ee09fd7020d698",
+				"dweb:/ipfs/QmX6HCfaWJxJsG4sK8EAzm75ymmJSgytxomXppgfnJgkh7"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/ErrorReporter.sol": {
+			"keccak256": "0xc565694807fce4d9eb218b77d2e7eb7665e0d6950cbfa9edd1e3c09e417b809c",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://610e579eb6fbd8da9ba8f2d04f17b2213e858466177c488e2f3e4a37a314b864",
+				"dweb:/ipfs/QmZmEvsi6qkvaPg6j2u3D3QZJbRtm2CPz8jf83HRkKrxuu"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/InterestRateModel.sol": {
+			"keccak256": "0x470821c8ff2120381ead6f54dba5c7b4fc0209682062bde51ea20291176aa0be",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://183fcf6b83f8183ef7930b51a5438ef9ab5a16702b76ab953892e40ef3688e34",
+				"dweb:/ipfs/QmTZXAJ6pCPiDbZmdzU1LpVzYru978ApNESrRqhGiKT4Lq"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,782 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "borrowAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "borrowAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "borrowAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "borrowVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "cTokens",
+						"type": "address[]"
+					}
+				],
+				"name": "enterMarkets",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					}
+				],
+				"name": "exitMarket",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cTokenBorrowed",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cTokenCollateral",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "liquidator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "liquidateBorrowAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cTokenBorrowed",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cTokenCollateral",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "liquidator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "seizeTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "liquidateBorrowVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cTokenBorrowed",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cTokenCollateral",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "liquidateCalculateSeizeTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "minter",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "mintAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "mintAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "minter",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "mintAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "mintTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "mintVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "redeemer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "redeemTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "redeemAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "redeemer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "redeemAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "redeemTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "redeemVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "repayBorrowAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "borrowerIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "repayBorrowVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cTokenCollateral",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cTokenBorrowed",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "liquidator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "seizeTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "seizeAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cTokenCollateral",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cTokenBorrowed",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "liquidator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "seizeTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "seizeVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "src",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "dst",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "transferTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "transferAllowed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "cToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "src",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "dst",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "transferTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "transferVerify",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"enterMarkets(address[])": {
+					"notice": "Indicator that this is a Comptroller contract (for inspection)"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Mycontract.sol": "Comptroller"
+		},
+		"evmVersion": "petersburg",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xba43b97fba0d32eb4254f6a5a297b39a19a247082a02d6e69349e071e2946218",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fc980984badf3984b6303b377711220e067722bbd6a135b24669ff5069ef9f32",
+				"dweb:/ipfs/QmPHXMSXj99XjSVM21YsY6aNtLLjLVXDbyN76J5HQYvvrz"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/IERC165.sol": {
+			"keccak256": "0xd04b0f06e0666f29cf7cccc82894de541e19bb30a765b107b1e40bb7fe5f7d7a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7b652499d098e88d8d878374616bb58434301061cae2253298b3f374044e0ddb",
+				"dweb:/ipfs/QmbhAzctqo5jrSKU6idHdVyqfmzCcDbNUPvmx4GiXxfA6q"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/IERC4906.sol": {
+			"keccak256": "0x2a9dadb806be80dd451821f1f1190eb9aa6f6edae85b185db29d60767cc0c5f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5c25cac8dbe5bd96320053d23c3dacdb875e629d7c53ac00892eb7aa8500bde6",
+				"dweb:/ipfs/Qmaf2oqbxxdJA9DphAoH4UCb8aXEAVM8fnu6qMxHJ5ta4A"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/IERC721.sol": {
+			"keccak256": "0xaf297d12d8d4a57fe01a70f0ef38908f208e3faedc577056d0b728fa2f3ccf0c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fbfaf37123958822a2720a4ea29651be00edab787540b770f73d3e025d286ff8",
+				"dweb:/ipfs/QmbzgWeTm8hJVUqWrNAwFjshqbYVyeGpQA8D1huzxQdmw6"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+			"keccak256": "0x2c309e7df9e05e6ce15bedfe74f3c61b467fc37e0fae9eab496acf5ea0bbd7ff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7063b5c98711a98018ba4635ac74cee1c1cfa2ea01099498e062699ed9530005",
+				"dweb:/ipfs/QmeJ8rGXkcv7RrqLdAW8PCXPAykxVsddfYY6g5NaTwmRFE"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4",
+				"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0xa82b58eca1ee256be466e536706850163d2ec7821945abd6b4778cfb3bee37da",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e75cf83beb757b8855791088546b8337e9d4684e169400c20d44a515353b708",
+				"dweb:/ipfs/QmYvPafLfoquiDMEj7CKHtvbgHu7TJNPSVPSCjrtjV8HjV"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol": {
+			"keccak256": "0x52da94e59d870f54ca0eb4f485c3d9602011f668ba34d72c88124a1496ebaab1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://09656a37963a61e79df0b718ad0ec323cd29d409d6ead33dbb91d0770ff87fa4",
+				"dweb:/ipfs/QmXLWCYoMpZ4SecK4kVaL53LZWXZNbQG8gUzACmZ6A64rE"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
+			"keccak256": "0x7942989e3525aec1672469e4c65fb33fbd19c785c9cadbcb70fcbe1fe8bfdd37",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6c9f260258c2be0e3b75f8ca285872c4bfa3a8fc97fdc2e62366c78abf22b54f",
+				"dweb:/ipfs/QmTg1DMNwCDj8NVi6i1noqx7cxuRdPP4VyW4fzDkKAKmH2"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+			"keccak256": "0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146",
+				"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"@openzeppelin/contracts/utils/Counters.sol": {
+			"keccak256": "0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://59e1c62884d55b70f3ae5432b44bb3166ad71ae3acd19c57ab6ddc3c87c325ee",
+				"dweb:/ipfs/QmezuXg5GK5oeA4F91EZhozBFekhq5TD966bHPH18cCqhu"
+			]
+		},
+		"@openzeppelin/contracts/utils/Strings.sol": {
+			"keccak256": "0x3088eb2868e8d13d89d16670b5f8612c4ab9ff8956272837d8e90106c59c14a0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b81d9ff6559ea5c47fc573e17ece6d9ba5d6839e213e6ebc3b4c5c8fe4199d7f",
+				"dweb:/ipfs/QmPCW1bFisUzJkyjroY3yipwfism9RRCigCcK1hbXtVM8n"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb0048dee081f6fffa5f74afc3fb328483c2a30504e94a0ddd2a5114d731ec4d",
+				"dweb:/ipfs/QmZptt1nmYoA5SgjwnSgWqgUSDgm4q52Yos3xhnMv3MV43"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/Math.sol": {
+			"keccak256": "0xe4455ac1eb7fc497bb7402579e7b4d64d928b846fce7d2b6fde06d366f21c2b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc8841b3cd48ad125e2f46323c8bad3aa0e88e399ec62acb9e57efa7e7c8058c",
+				"dweb:/ipfs/QmSqE4mXHA2BXW58deDbXE8MTcsL5JSKNDbm23sVQxRLPS"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SignedMath.sol": {
+			"keccak256": "0xf92515413956f529d95977adc9b0567d583c6203fc31ab1c23824c35187e3ddc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c50fcc459e49a9858b6d8ad5f911295cb7c9ab57567845a250bf0153f84a95c7",
+				"dweb:/ipfs/QmcEW85JRzvDkQggxiBBLVAasXWdkhEysqypj9EaB6H2g6"
+			]
+		},
+		"CTokenInterface.sol": {
+			"keccak256": "0xb17299250e8238cb98840ccfd0c534f7a4abca7999a4f6a5ef2a2a3334feab58",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://6c6493222d953e5c91a4aaf276bb5d377349b05fce0144d3878f3b5685f6f76f",
+				"dweb:/ipfs/Qmdhuzamv4VxyQg5EXW6siBhKXn552ZiS9UqooZa8ve5HH"
+			]
+		},
+		"Mycontract.sol": {
+			"keccak256": "0xd2e34b0f8320461e2a25842c9ae06bcb37f811d72409dd224b9353b0d93998bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fc20b01d4fd26af80799be707fe9775652d59a3451b469fd9973eed43ac17e4f",
+				"dweb:/ipfs/QmcxD9tmP9jadWrwH4DXUigESuF37BxqLXk8kwxxdig6cp"
+			]
+		},
+		"Mynft.sol": {
+			"keccak256": "0xf61503b6f9ebafb515df2171ebcb51dfdf92712e757f257f975e701a97e981c6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d02d6adc53f0b951cd2b1200089655a82e8eaebc34f349ef97cd2a2852321f90",
+				"dweb:/ipfs/QmNp8k3nH1tBz9xEky9vNYJUiVmRpx6zy7feJDeCWnxuE8"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/ComptrollerInterface.sol": {
+			"keccak256": "0x4111ff0414696caca696cf36ecf3add15133933b51ba57c56cfb08989c82d44f",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://bed8b7b5ed928e0bb2056963df31825eafd648ea5313e57b4d12f62a54766e84",
+				"dweb:/ipfs/QmVFrWFGDypompUL6Np68PE7ykdjSNf9DcepLKniJ1fgFk"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/EIP20NonStandardInterface.sol": {
+			"keccak256": "0x5ce25bb36a4ec9490617567a24b55bc813e943bcd4411e060afffe122bea0416",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://ffb7208e6c62875cb0ee30940c5967411c8ddf6b259d52a445ee09fd7020d698",
+				"dweb:/ipfs/QmX6HCfaWJxJsG4sK8EAzm75ymmJSgytxomXppgfnJgkh7"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/ErrorReporter.sol": {
+			"keccak256": "0xc565694807fce4d9eb218b77d2e7eb7665e0d6950cbfa9edd1e3c09e417b809c",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://610e579eb6fbd8da9ba8f2d04f17b2213e858466177c488e2f3e4a37a314b864",
+				"dweb:/ipfs/QmZmEvsi6qkvaPg6j2u3D3QZJbRtm2CPz8jf83HRkKrxuu"
+			]
+		},
+		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/InterestRateModel.sol": {
+			"keccak256": "0x470821c8ff2120381ead6f54dba5c7b4fc0209682062bde51ea20291176aa0be",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://183fcf6b83f8183ef7930b51a5438ef9ab5a16702b76ab953892e40ef3688e34",
+				"dweb:/ipfs/QmTZXAJ6pCPiDbZmdzU1LpVzYru978ApNESrRqhGiKT4Lq"
+			]
+		}
+	},
+	"version": 1
+}
