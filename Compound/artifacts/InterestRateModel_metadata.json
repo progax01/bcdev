@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.14+commit.01f1aaa4"
+		"version": "0.5.12+commit.7709ece9"
 	},
 	"language": "Solidity",
 	"output": {
@@ -30,7 +30,38 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "cash",
+						"type": "uint256"
 					},
+					{
+						"internalType": "uint256",
+						"name": "borrows",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reserves",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reserveFactorMantissa",
+						"type": "uint256"
+					}
+				],
+				"name": "getSupplyRate",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
@@ -53,47 +84,52 @@
 					}
 				],
 				"payable": false,
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
 		"devdoc": {
 			"author": "Compound",
-			"details": "These functions are specifically not marked `pure` as implementations of this     contract may read from storage variables.",
 			"methods": {
 				"getBorrowRate(uint256,uint256,uint256)": {
-					"details": "The return value should be scaled by 1e18, thus a return value of     `(true, 1000000000000)` implies an interest rate of 0.000001 or 0.0001% *per block*.",
 					"params": {
-						"borrows": "The total borrows of the underlying asset in the CToken",
-						"cash": "The total cash of the underlying asset in the CToken",
-						"reserves": "The total reserves of the underlying asset in the CToken"
+						"borrows": "The total amount of borrows the market has outstanding",
+						"cash": "The total amount of cash the market has",
+						"reserves": "The total amnount of reserves the market has"
 					},
-					"return": "Success or failure and the borrow interest rate per block scaled by 10e18"
+					"return": "The borrow rate per block (as a percentage, and scaled by 1e18)"
 				},
-				"isInterestRateModel()": {
-					"details": "Marker function used for light validation when updating the interest rate model of a market. Implementations should simply return true.",
-					"return": "Success or failure"
+				"getSupplyRate(uint256,uint256,uint256,uint256)": {
+					"params": {
+						"borrows": "The total amount of borrows the market has outstanding",
+						"cash": "The total amount of cash the market has",
+						"reserveFactorMantissa": "The current reserve factor the market has",
+						"reserves": "The total amnount of reserves the market has"
+					},
+					"return": "The supply rate per block (as a percentage, and scaled by 1e18)"
 				}
 			},
-			"title": "The Compound InterestRateModel Interface"
+			"title": "Compound's InterestRateModel Interface"
 		},
 		"userdoc": {
 			"methods": {
 				"getBorrowRate(uint256,uint256,uint256)": {
-					"notice": "Gets the current borrow interest rate based on the given asset, total cash, total borrows        and total reserves."
+					"notice": "Calculates the current borrow interest rate per block"
+				},
+				"getSupplyRate(uint256,uint256,uint256,uint256)": {
+					"notice": "Calculates the current supply interest rate per block"
 				},
 				"isInterestRateModel()": {
-					"notice": "Marker function used for light validation when updating the interest rate model of a market"
+					"notice": "Indicator that this is an InterestRateModel contract (for inspection)"
 				}
-			},
-			"notice": "Any interest rate model should derive from this contract."
+			}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"comptroller.sol": "InterestRateModel"
+			"CdaiToken.sol": "InterestRateModel"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,
@@ -102,11 +138,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"comptroller.sol": {
-			"keccak256": "0x5460b89381d9270439aa82d77fbf5c2c6aeddde6d5a90887d29512b8ba5804b5",
+		"CdaiToken.sol": {
+			"keccak256": "0xd247d6bfe3895ab1d25f7c1fd20c124f53e618a1c151b456ea564c348df38265",
 			"urls": [
-				"bzz-raw://898b66fd7250760c6ca41e13049bdee493058a3e90e1c53d1869517014233606",
-				"dweb:/ipfs/Qmf7W2ASx5sMWoMch5YdD4LgR3EqUvEDF9pm3hT6iZ5Msz"
+				"bzz-raw://c19b24f74db5fe4c5913d98ca85f07e219d3653db3eddbfc6b2d65086137a6cb",
+				"dweb:/ipfs/QmXAcYaXjTdLVMXAjUgx1PctUyDyy72qiCKVUD1pdYkrpB"
 			]
 		}
 	},

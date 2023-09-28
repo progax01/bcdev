@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.14+commit.01f1aaa4"
+		"version": "0.5.12+commit.7709ece9"
 	},
 	"language": "Solidity",
 	"output": {
@@ -598,9 +598,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"comptroller.sol": "ComptrollerInterface"
+			"CdaiToken.sol": "ComptrollerInterface"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,
@@ -609,11 +609,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"comptroller.sol": {
-			"keccak256": "0x5460b89381d9270439aa82d77fbf5c2c6aeddde6d5a90887d29512b8ba5804b5",
+		"CdaiToken.sol": {
+			"keccak256": "0xd247d6bfe3895ab1d25f7c1fd20c124f53e618a1c151b456ea564c348df38265",
 			"urls": [
-				"bzz-raw://898b66fd7250760c6ca41e13049bdee493058a3e90e1c53d1869517014233606",
-				"dweb:/ipfs/Qmf7W2ASx5sMWoMch5YdD4LgR3EqUvEDF9pm3hT6iZ5Msz"
+				"bzz-raw://c19b24f74db5fe4c5913d98ca85f07e219d3653db3eddbfc6b2d65086137a6cb",
+				"dweb:/ipfs/QmXAcYaXjTdLVMXAjUgx1PctUyDyy72qiCKVUD1pdYkrpB"
 			]
 		}
 	},

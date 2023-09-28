@@ -45,6 +45,7 @@
 		"gasEstimates": null,
 		"methodIdentifiers": {
 			"getBorrowRate(uint256,uint256,uint256)": "15f24053",
+			"getSupplyRate(uint256,uint256,uint256,uint256)": "b8168816",
 			"isInterestRateModel()": "2191f92a"
 		}
 	},
@@ -74,7 +75,38 @@
 					"internalType": "uint256",
 					"name": "",
 					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "cash",
+					"type": "uint256"
 				},
+				{
+					"internalType": "uint256",
+					"name": "borrows",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "reserves",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "reserveFactorMantissa",
+					"type": "uint256"
+				}
+			],
+			"name": "getSupplyRate",
+			"outputs": [
 				{
 					"internalType": "uint256",
 					"name": "",
