@@ -3,6 +3,61 @@
 pragma solidity ^0.8.6;
 
 
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./IERC20.sol"; // Import the ERC20 interface
+import "./Comptroller.sol"; // Import the Compound Comptroller contract
+import "./CToken.sol"; // Import the cToken contract
+
+contract CompoundInteraction {
+    Comptroller public comptroller;
+    CToken public cToken;
+    IERC20 public underlyingToken;
+
+    constructor(address _comptrollerAddress, address _cTokenAddress, address _underlyingTokenAddress) {
+        comptroller = Comptroller(_comptrollerAddress);
+        cToken = CToken(_cTokenAddress);
+        underlyingToken = IERC20(_underlyingTokenAddress);
+    }
+
+    function supplyToCompound(uint256 amount) external {
+        // Approve the transfer of your ERC20 tokens to the cToken contract
+        require(underlyingToken.approve(address(cToken), amount), "Approval failed");
+
+        // Supply tokens to Compound
+        require(cToken.mint(amount) == 0, "Minting failed");
+    }
+
+    function calculateInterestEarned(address user) external view returns (uint256) {
+        // Get the user's balance in cTokens
+        uint256 cTokenBalance = cToken.balanceOf(user);
+
+        // Get the exchange rate (how many underlying tokens you get per cToken)
+        uint256 exchangeRate = cToken.exchangeRateStored();
+
+        // Calculate the user's balance in underlying tokens
+        uint256 underlyingBalance = cTokenBalance * exchangeRate / 1e18;
+
+        // Calculate the interest earned (balance in underlying tokens - supplied amount)
+        uint256 suppliedAmount = underlyingBalance - cTokenBalance;
+        return suppliedAmount;
+    }
+
+    function withdrawWithInterest(uint256 amount) external {
+        // Calculate the equivalent amount of cTokens to withdraw
+        uint256 cTokenAmount = amount * 1e18 / cToken.exchangeRateStored();
+
+        // Withdraw cTokens
+        require(cToken.redeem(cTokenAmount) == 0, "Redeem failed");
+
+        // Transfer the underlying tokens to the user
+        require(underlyingToken.transfer(msg.sender, amount), "Transfer failed");
+    }
+}
+
+
 interface Erc20 {
     function approve(address, uint256) external returns (bool);
 

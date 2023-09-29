@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.21+commit.d9974bed"
+		"version": "0.8.10+commit.fc410830"
 	},
 	"language": "Solidity",
 	"output": {
@@ -541,7 +541,7 @@
 		"compilationTarget": {
 			"Mycontract.sol": "Comptroller"
 		},
-		"evmVersion": "petersburg",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -633,14 +633,6 @@
 				"dweb:/ipfs/QmYvPafLfoquiDMEj7CKHtvbgHu7TJNPSVPSCjrtjV8HjV"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol": {
-			"keccak256": "0x52da94e59d870f54ca0eb4f485c3d9602011f668ba34d72c88124a1496ebaab1",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://09656a37963a61e79df0b718ad0ec323cd29d409d6ead33dbb91d0770ff87fa4",
-				"dweb:/ipfs/QmXLWCYoMpZ4SecK4kVaL53LZWXZNbQG8gUzACmZ6A64rE"
-			]
-		},
 		"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
 			"keccak256": "0x7942989e3525aec1672469e4c65fb33fbd19c785c9cadbcb70fcbe1fe8bfdd37",
 			"license": "MIT",
@@ -730,19 +722,19 @@
 			]
 		},
 		"Mycontract.sol": {
-			"keccak256": "0xd2e34b0f8320461e2a25842c9ae06bcb37f811d72409dd224b9353b0d93998bf",
+			"keccak256": "0x4d58489b179840aec927befd2701ee9c3591a3fc0b2871c5cb9913f0e91e65b4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fc20b01d4fd26af80799be707fe9775652d59a3451b469fd9973eed43ac17e4f",
-				"dweb:/ipfs/QmcxD9tmP9jadWrwH4DXUigESuF37BxqLXk8kwxxdig6cp"
+				"bzz-raw://cfb6f570333d7ed3d6b514c95e0079bc700d4432cc920a316a88aff94542eac6",
+				"dweb:/ipfs/QmVWP5MxoLNmNKjJpVpoAXADf5jJ3mWiTFM2HGiUKMj5wp"
 			]
 		},
 		"Mynft.sol": {
-			"keccak256": "0xf61503b6f9ebafb515df2171ebcb51dfdf92712e757f257f975e701a97e981c6",
+			"keccak256": "0x42bb3a9ebeaf092ffefc1ddc08f93fa9b0467792199c04d94b6e20f0a85f33aa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d02d6adc53f0b951cd2b1200089655a82e8eaebc34f349ef97cd2a2852321f90",
-				"dweb:/ipfs/QmNp8k3nH1tBz9xEky9vNYJUiVmRpx6zy7feJDeCWnxuE8"
+				"bzz-raw://1dc3f1bb57c46a9c9896f2bae70456833512d6f9fd4c6a4e52ddb4d8a580eab9",
+				"dweb:/ipfs/QmUCzPqvPgCUNFsZXwQqeT7y5dUWtdo4xCXgck4jcFpyQ2"
 			]
 		},
 		"https://github.com/compound-finance/compound-protocol/blob/master/contracts/ComptrollerInterface.sol": {
