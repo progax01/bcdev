@@ -1,0 +1,153 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldImplementation",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					}
+				],
+				"name": "NewImplementation",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "implementation_",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "allowResign",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes",
+						"name": "becomeImplementationData",
+						"type": "bytes"
+					}
+				],
+				"name": "_setImplementation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "implementation",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"_setImplementation(address,bool,bytes)": {
+					"params": {
+						"allowResign": "Flag to indicate whether to call _resignImplementation on the old implementation",
+						"becomeImplementationData": "The encoded bytes data to be passed to _becomeImplementation",
+						"implementation_": "The address of the new implementation for delegation"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"NewImplementation(address,address)": {
+					"notice": "Emitted when implementation is changed"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"_setImplementation(address,bool,bytes)": {
+					"notice": "Called by the admin to update the implementation of the delegator"
+				},
+				"implementation()": {
+					"notice": "Implementation address for this contract"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contract/CTokenInterfaces.sol": "CDelegatorInterface"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contract/CTokenInterfaces.sol": {
+			"keccak256": "0x8b31f85b309f9b6b91306ca460bf84539740060d4ba0cccad267095daca04b82",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://b9c7d67e5f65da2715927a90b5a4d242726012e2a4b58938259e68a2ff7e5cb0",
+				"dweb:/ipfs/QmNx6MNS7zssXV6S8VzfLTmdfedHrpNxMTuSDXquz31Qry"
+			]
+		},
+		"Contract/ComptrollerInterface.sol": {
+			"keccak256": "0x9dc68e5f69253827088894490c576a3c2b894334c16ef21301f08051c994a48d",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://3b672ae0d3efc19d0c04bd9abf812941a8777308f7963da12c9fead72f415fcd",
+				"dweb:/ipfs/QmU4DJypK1phsTS5h1M4nLYxUqvS8wGqStcRkwd3w2nzrQ"
+			]
+		},
+		"Contract/EIP20NonStandardInterface.sol": {
+			"keccak256": "0xe3d7777a41db95ebc209e69c925c4123cc5e3071792bec85a73c2ca210099b62",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://f82dc36c292fe5df18e0ef17f649e9d77478bae9899bf9469a130540f4f32453",
+				"dweb:/ipfs/QmfMdFGFRPA8K1FaQfbEwWAuRQma2RajGRKhtNVXqv3DkL"
+			]
+		},
+		"Contract/ErrorReporter.sol": {
+			"keccak256": "0x7e866bcb7308567db737887475199353d4d39359e3c162fce549408171109aed",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://379858f3de2270fedc0d0757b62f96c417f3656e188373229328fff45b07d15f",
+				"dweb:/ipfs/Qmdddpj5EkTfhJBUfESgm3Kk6bdFkYgVwd9ebzt3ZAnNyD"
+			]
+		},
+		"Contract/InterestRateModel.sol": {
+			"keccak256": "0x806e47cca3a9858e4bb70a51608d221ce8fcf4d4e4da7bd77f56986e51d1db68",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://99d7c1906ff339ac770a5ad08a6077384865bd834d349711c4a2d86f3a9e4172",
+				"dweb:/ipfs/QmWMojU71xZkioEAmJFp7jVQMBwMPWDAjgrrNUiufss5kR"
+			]
+		}
+	},
+	"version": 1
+}

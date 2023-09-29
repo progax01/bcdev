@@ -49,34 +49,64 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"_addReserves(uint256)": "3e941010",
+			"allowance(address,address)": "dd62ed3e",
+			"approve(address,uint256)": "095ea7b3",
 			"balanceOf(address)": "70a08231",
-			"borrow(uint256)": "c5ebeaec",
-			"liquidateBorrow(address,uint256,address)": "f5e3c462",
+			"balanceOfUnderlying(address)": "3af9e669",
+			"borrowRatePerBlock()": "f8f9da28",
+			"exchangeRateStored()": "182df0f5",
 			"mint(uint256)": "a0712d68",
 			"redeem(uint256)": "db006a75",
 			"redeemUnderlying(uint256)": "852a12e3",
-			"repayBorrow(uint256)": "0e752702",
-			"repayBorrowBehalf(address,uint256)": "2608f818",
-			"sweepToken(address)": "1be19560",
-			"underlying()": "6f307dc3"
+			"supplyRatePerBlock()": "ae9d70b0",
+			"transfer(address,uint256)": "a9059cbb",
+			"transferFrom(address,address,uint256)": "23b872dd"
 		}
 	},
 	"abi": [
 		{
 			"inputs": [
 				{
-					"internalType": "uint256",
-					"name": "addAmount",
-					"type": "uint256"
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "spender",
+					"type": "address"
 				}
 			],
-			"name": "_addReserves",
+			"name": "allowance",
 			"outputs": [
 				{
 					"internalType": "uint256",
 					"name": "",
 					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "spender",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "approve",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
 			"stateMutability": "nonpayable",
@@ -104,12 +134,12 @@
 		{
 			"inputs": [
 				{
-					"internalType": "uint256",
-					"name": "borrowAmount",
-					"type": "uint256"
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
 				}
 			],
-			"name": "borrow",
+			"name": "balanceOfUnderlying",
 			"outputs": [
 				{
 					"internalType": "uint256",
@@ -121,24 +151,8 @@
 			"type": "function"
 		},
 		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "borrower",
-					"type": "address"
-				},
-				{
-					"internalType": "uint256",
-					"name": "repayAmount",
-					"type": "uint256"
-				},
-				{
-					"internalType": "contract CTokenInterface",
-					"name": "cTokenCollateral",
-					"type": "address"
-				}
-			],
-			"name": "liquidateBorrow",
+			"inputs": [],
+			"name": "borrowRatePerBlock",
 			"outputs": [
 				{
 					"internalType": "uint256",
@@ -146,7 +160,20 @@
 					"type": "uint256"
 				}
 			],
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "exchangeRateStored",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -207,14 +234,8 @@
 			"type": "function"
 		},
 		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "repayAmount",
-					"type": "uint256"
-				}
-			],
-			"name": "repayBorrow",
+			"inputs": [],
+			"name": "supplyRatePerBlock",
 			"outputs": [
 				{
 					"internalType": "uint256",
@@ -222,28 +243,28 @@
 					"type": "uint256"
 				}
 			],
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "borrower",
+					"name": "dst",
 					"type": "address"
 				},
 				{
 					"internalType": "uint256",
-					"name": "repayAmount",
+					"name": "amount",
 					"type": "uint256"
 				}
 			],
-			"name": "repayBorrowBehalf",
+			"name": "transfer",
 			"outputs": [
 				{
-					"internalType": "uint256",
+					"internalType": "bool",
 					"name": "",
-					"type": "uint256"
+					"type": "bool"
 				}
 			],
 			"stateMutability": "nonpayable",
@@ -252,27 +273,30 @@
 		{
 			"inputs": [
 				{
-					"internalType": "contract EIP20NonStandardInterface",
-					"name": "token",
+					"internalType": "address",
+					"name": "src",
 					"type": "address"
-				}
-			],
-			"name": "sweepToken",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "underlying",
-			"outputs": [
+				},
 				{
 					"internalType": "address",
-					"name": "",
+					"name": "dst",
 					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
 				}
 			],
-			"stateMutability": "view",
+			"name": "transferFrom",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
 			"type": "function"
 		}
 	]
