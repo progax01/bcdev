@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
@@ -117,7 +117,7 @@
 		"compilationTarget": {
 			"Mycontract.sol": "Usdt"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "petersburg",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -314,19 +314,19 @@
 			]
 		},
 		"Mycontract.sol": {
-			"keccak256": "0xf06f15f626eb24e303c9e508df90f6f0b7078d612f221a953705759b86dc1f70",
+			"keccak256": "0xe7d2a84bf7f691b266dbaa337414b53c7e5102bb94d9b92f13767b807a6cf5bb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b82528f1394ee5b08b96bc61e1b0e10bbdd939c402fe7124f765612aae848814",
-				"dweb:/ipfs/QmRxSf2ozuzzhsAhBMqk5FShEUHwSdn7EFWZsiqxchN5gw"
+				"bzz-raw://a10e2939d78fc189f495aadf4e9788d158e41298a7cd12cf13979f55286e6355",
+				"dweb:/ipfs/QmagxWb27MYqMPeyWUsYQCJTbw8LR6fkNK7Z5QJi3BHyhV"
 			]
 		},
 		"Mynft.sol": {
-			"keccak256": "0x129c8af8a504751502178dcdd478714553862c1ff89c42e8683f95aa99baca30",
+			"keccak256": "0x704553aaca8467bb4b3c5a66bfe38caf52b27c3f2fb2722efe1ea7f273c6c3aa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://18952ab4802213b0fb9c868e72f1b92a3aa1872e9cd42ab86ec8aa36d6f31138",
-				"dweb:/ipfs/QmfYhhbPpqoJnuzPYRfASKmkMhVBuyAV2SAqJNtaBvyx7N"
+				"bzz-raw://1bc97f900b9a592d2395d62cc21eb4c48145360560b34c2851f86b9510b2e362",
+				"dweb:/ipfs/QmPNUFq8pb9pDpxxxkpFrfR9PuaykpHqGM4kMmPRuqGMdh"
 			]
 		},
 		"SafeMath.sol": {

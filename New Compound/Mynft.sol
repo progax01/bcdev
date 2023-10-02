@@ -15,7 +15,7 @@ contract Mynft is ERC721URIStorage, Ownable {
     mapping(uint=> bool) public isTokenDrawn;
     Counters.Counter private _tokenIdCounter;
 
-    uint256 public mintingFee = 1000;
+   
 
     constructor() ERC721("MyNFT", "NFT") {}
 

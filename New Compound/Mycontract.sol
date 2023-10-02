@@ -62,23 +62,23 @@ contract CompoundSupply {
     mapping( address=> mapping(uint => uint)) userCtokenamount ;
 
     constructor(
-        address _usdtTokenAddress,address _cDaiTokenAddress,address _Mynft) {
+        address _usdtTokenAddress,address _cusdtTokenAddress,address _Mynft) {
         owner = msg.sender;
       
         usdtToken = Usdt(_usdtTokenAddress);
-        cUsdtToken = CTokenInterfaces(_cDaiTokenAddress);
+        cUsdtToken = CTokenInterfaces(_cusdtTokenAddress);
         NftInstance = Mynft(_Mynft);
     }
 
     // Deposit DAI into the Compound protocol
-    function deposit(uint256 amount) external {
+    function deposit(uint256 amount) public {
         
         uint256 tokenId = _tokenIdCounter.current();
         //Transfer funds to contract from user
         require(amount > 0, "Amount must be greater than zero");
 
         //Transfer from user to contract
-        //require(usdtToken.approve(address(this), amount), "Allowance not set");
+        require(usdtToken.approve(address(this), amount), "Allowance not set");
         require(usdtToken.transferFrom(msg.sender, address(this), amount), "Transfer Fail" ); //to be called by contract
 
         // Now minting NFT starts

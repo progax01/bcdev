@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
@@ -283,19 +283,6 @@
 				"name": "mintNFT",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "mintingFee",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -606,7 +593,7 @@
 		"compilationTarget": {
 			"Mynft.sol": "Mynft"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -755,11 +742,11 @@
 			]
 		},
 		"Mynft.sol": {
-			"keccak256": "0x129c8af8a504751502178dcdd478714553862c1ff89c42e8683f95aa99baca30",
+			"keccak256": "0x704553aaca8467bb4b3c5a66bfe38caf52b27c3f2fb2722efe1ea7f273c6c3aa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://18952ab4802213b0fb9c868e72f1b92a3aa1872e9cd42ab86ec8aa36d6f31138",
-				"dweb:/ipfs/QmfYhhbPpqoJnuzPYRfASKmkMhVBuyAV2SAqJNtaBvyx7N"
+				"bzz-raw://1bc97f900b9a592d2395d62cc21eb4c48145360560b34c2851f86b9510b2e362",
+				"dweb:/ipfs/QmPNUFq8pb9pDpxxxkpFrfR9PuaykpHqGM4kMmPRuqGMdh"
 			]
 		}
 	},
