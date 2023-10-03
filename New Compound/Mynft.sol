@@ -21,7 +21,7 @@ contract Mynft is ERC721URIStorage, Ownable {
 
     function _baseURI() internal pure override returns (string memory) {
         return
-            "https://orange-absolute-barracuda-733.mypinata.cloud/ipfs/Qma34JYoFDhwy4B3nMqodPUhhXzTt2xgeQ6FRXRwhdqTee/2.json";
+            "https://orange-absolute-barracuda-733.mypinata.cloud/ipfs/Qma34JYoFDhwy4B3nMqodPUhhXzTt2xgeQ6FRXRwhdqTee/";
     }
 
     function mintNFT(address adrs, uint256 amount) public {

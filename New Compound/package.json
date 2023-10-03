@@ -1,0 +1,14 @@
+{
+  "name": "new-compound",
+  "version": "1.0.0",
+  "description": "",
+  "main": "transfer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^4.1.2"
+  }
+}

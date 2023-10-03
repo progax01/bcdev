@@ -78,8 +78,8 @@ contract CompoundSupply {
         require(amount > 0, "Amount must be greater than zero");
 
         //Transfer from user to contract
-        require(usdtToken.approve(address(this), amount), "Allowance not set");
-        require(usdtToken.transferFrom(msg.sender, address(this), amount), "Transfer Fail" ); //to be called by contract
+       // require(usdtToken.approve(address(this), amount), "Allowance not set");
+        require(usdtToken.transferFrom(msg.sender, address(this), amount), " Transfer Fail " ); //to be called by contract
 
         // Now minting NFT starts
         NftInstance.safeMint(msg.sender, amount);

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.21+commit.d9974bed"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -593,7 +593,7 @@
 		"compilationTarget": {
 			"Mynft.sol": "Mynft"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -742,11 +742,11 @@
 			]
 		},
 		"Mynft.sol": {
-			"keccak256": "0x704553aaca8467bb4b3c5a66bfe38caf52b27c3f2fb2722efe1ea7f273c6c3aa",
+			"keccak256": "0xfe3c4a12260464e5f460ee8e8879405fc6575532fe67bea1a2fe3c283461d9c8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1bc97f900b9a592d2395d62cc21eb4c48145360560b34c2851f86b9510b2e362",
-				"dweb:/ipfs/QmPNUFq8pb9pDpxxxkpFrfR9PuaykpHqGM4kMmPRuqGMdh"
+				"bzz-raw://f708674cfd196b2e84bf0d0b1a5b38b3b1b183bbef6d937ed5c830e6e50cdea1",
+				"dweb:/ipfs/QmcnhHjSaMEm2rNVA3U8nB4ifbfpvrFCiGMBMcL2AL55gv"
 			]
 		}
 	},
