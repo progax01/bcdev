@@ -60,11 +60,12 @@ contract CompoundSupply {
     Mynft public NftInstance;
 
     mapping( address=> mapping(uint => uint)) userCtokenamount ;
+ address _cusdtTokenAddress;
 
     constructor(
-        address _usdtTokenAddress,address _cusdtTokenAddress,address _Mynft) {
+        address _usdtTokenAddress,address cusdtTokenAddress,address _Mynft) {
         owner = msg.sender;
-      
+       _cusdtTokenAddress= cusdtTokenAddress;
         usdtToken = Usdt(_usdtTokenAddress);
         cUsdtToken = CTokenInterfaces(_cusdtTokenAddress);
         NftInstance = Mynft(_Mynft);
@@ -72,32 +73,38 @@ contract CompoundSupply {
 
     // Deposit DAI into the Compound protocol
     function deposit(uint256 amount) public {
-        
+        address userads=msg.sender;
         uint256 tokenId = _tokenIdCounter.current();
         //Transfer funds to contract from user
         require(amount > 0, "Amount must be greater than zero");
 
         //Transfer from user to contract
        // require(usdtToken.approve(address(this), amount), "Allowance not set");
-        require(usdtToken.transferFrom(msg.sender, address(this), amount), " Transfer Fail " ); //to be called by contract
+        require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail " ); //to be called by contract
 
         // Now minting NFT starts
-        NftInstance.safeMint(msg.sender, amount);
+        NftInstance.safeMint(userads, amount);
 
         //@compound protocol tranfer
 
         // Get ctoken in return 
     
+        //approving compound for usdt trnas
+        require( usdtToken.approve(_cusdtTokenAddress, amount),"compound approve failed");
+
+
         uint256 mintResult = cUsdtToken.mint(amount);
         require(mintResult == 0, "cDAI minting failed");
+
+    
 
         //@Map the Ctoken received with the Token ID
         uint256 currentExchangeRate =  cUsdtToken.exchangeRateCurrent();
         uint256 cTokensReceived = (amount * 10 ** 18) / currentExchangeRate;
 
-        TokenBuyAmount[msg.sender][tokenId]=cTokensReceived; 
+        TokenBuyAmount[userads][tokenId]=cTokensReceived; 
         isTokenDrawn[tokenId]=false;
-        TokenOwner[tokenId]=msg.sender;
+        TokenOwner[tokenId]=userads;
         _tokenIdCounter.increment();
     }
 
@@ -105,19 +112,18 @@ contract CompoundSupply {
 
     function withdraw(uint256 tokenID) external {
 
+        address userads=msg.sender; //saving user addresss
+        
         // // check token id widthdrawn done or not
          require( isTokenDrawn[tokenID] == false, "Amount already widthdrawn");
 
         //Check for token Ownership
-        require(
-            TokenOwner[tokenID] == msg.sender,
-            "Your are not owner of this Token"
-        );
+        require(TokenOwner[tokenID] == userads, "Your are not owner of this Token");
 
         
         // Check for Amount given for nft minting
 
-        uint Amount= TokenBuyAmount[msg.sender][tokenID];
+        uint Amount= TokenBuyAmount[userads][tokenID];
 
         //@@Contract Ctoken amount
         // Calculate the equivalent amount of cTokens to withdraw,Get the exchange rate

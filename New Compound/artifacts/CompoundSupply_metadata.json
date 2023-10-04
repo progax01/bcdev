@@ -394,19 +394,19 @@
 			]
 		},
 		"Mycontract.sol": {
-			"keccak256": "0xe7d2a84bf7f691b266dbaa337414b53c7e5102bb94d9b92f13767b807a6cf5bb",
+			"keccak256": "0x4729ca4098dfe0264389fdc6a0ba6849e2bfdb97b43da55925cfb1f3b8a34ea8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a10e2939d78fc189f495aadf4e9788d158e41298a7cd12cf13979f55286e6355",
-				"dweb:/ipfs/QmagxWb27MYqMPeyWUsYQCJTbw8LR6fkNK7Z5QJi3BHyhV"
+				"bzz-raw://0fdc0d7ee514108b225d9247dce7c77a121403d5f723f11ad52895a927de2bca",
+				"dweb:/ipfs/QmXJpS8qGR1rKpF8cWaQPf67i9rTSazEDBLhmmciFEj4b4"
 			]
 		},
 		"Mynft.sol": {
-			"keccak256": "0x704553aaca8467bb4b3c5a66bfe38caf52b27c3f2fb2722efe1ea7f273c6c3aa",
+			"keccak256": "0xfe3c4a12260464e5f460ee8e8879405fc6575532fe67bea1a2fe3c283461d9c8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1bc97f900b9a592d2395d62cc21eb4c48145360560b34c2851f86b9510b2e362",
-				"dweb:/ipfs/QmPNUFq8pb9pDpxxxkpFrfR9PuaykpHqGM4kMmPRuqGMdh"
+				"bzz-raw://f708674cfd196b2e84bf0d0b1a5b38b3b1b183bbef6d937ed5c830e6e50cdea1",
+				"dweb:/ipfs/QmcnhHjSaMEm2rNVA3U8nB4ifbfpvrFCiGMBMcL2AL55gv"
 			]
 		},
 		"SafeMath.sol": {
