@@ -428,7 +428,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"NewStakeing.sol": "MyStakingContract"
+			"Staking/NewStakeing.sol": "MyStakingContract"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -490,7 +490,7 @@
 				"dweb:/ipfs/QmezuXg5GK5oeA4F91EZhozBFekhq5TD966bHPH18cCqhu"
 			]
 		},
-		"MyToken.sol": {
+		"Staking/MyToken.sol": {
 			"keccak256": "0x0ebb01008d08b0b5b3adfa75333c0bfe054ce463dc959daeae6e12473440348e",
 			"license": "MIT",
 			"urls": [
@@ -498,7 +498,7 @@
 				"dweb:/ipfs/QmUBbj6Qute1U7WSGjaf7r2HXVcgcCdDKLgSUtALz6SBkK"
 			]
 		},
-		"NewStakeing.sol": {
+		"Staking/NewStakeing.sol": {
 			"keccak256": "0x999cc7049736bd928d2fc1a76628dbad1a28a4b26146b2b222cddbb2c0813e2c",
 			"license": "MIT",
 			"urls": [

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.20+commit.a1b79de6"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
@@ -461,7 +461,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Myblacktoken.sol": "Myblacktoken"
+			"Myerc20/Myblacktoken.sol": "Myblacktoken"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -515,7 +515,7 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"Myblacktoken.sol": {
+		"Myerc20/Myblacktoken.sol": {
 			"keccak256": "0x8bcb3024d0ebc08e3bc4ef496cbdb706f2a79d33dc33205f3763bcd2f96cbbea",
 			"license": "MIT",
 			"urls": [

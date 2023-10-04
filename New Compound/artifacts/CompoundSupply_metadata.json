@@ -6,23 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_usdtTokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_cusdtTokenAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_Mynft",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -59,7 +43,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "add",
+						"type": "address"
+					}
+				],
 				"name": "cUsdtBalance",
 				"outputs": [
 					{
@@ -92,6 +82,19 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "comptroller",
+				"outputs": [
+					{
+						"internalType": "contract ComptrollerInterface",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -143,7 +146,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "add",
+						"type": "address"
+					}
+				],
 				"name": "usdtBalance",
 				"outputs": [
 					{
@@ -152,7 +161,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -394,11 +403,11 @@
 			]
 		},
 		"Mycontract.sol": {
-			"keccak256": "0x4729ca4098dfe0264389fdc6a0ba6849e2bfdb97b43da55925cfb1f3b8a34ea8",
+			"keccak256": "0xcd40ab197318bc71f00977f0478d1a985705deb275dbc7f4b80fc601845e32e6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0fdc0d7ee514108b225d9247dce7c77a121403d5f723f11ad52895a927de2bca",
-				"dweb:/ipfs/QmXJpS8qGR1rKpF8cWaQPf67i9rTSazEDBLhmmciFEj4b4"
+				"bzz-raw://869af50712bd368b55749e7af2db716722e468a3bf280bdb47c7734b7a65aa0a",
+				"dweb:/ipfs/QmRNJeVzgsXrST765Azn6sgjJH131dWGXZjuvoHVpGqo6J"
 			]
 		},
 		"Mynft.sol": {

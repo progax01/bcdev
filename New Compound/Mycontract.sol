@@ -7,7 +7,7 @@ import "./Contract/CTokenInterfaces.sol"; // You'll need to import the Compound 
 import "./Mynft.sol";
 import "./ERC20.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-
+//import "https://github.com/compound-finance/compound-protocol/blob/master/contracts/ComptrollerInterface.sol";
 // interface CErc20Interface {
 //         function transfer(address dst, uint amount) external returns (bool);
 //     function transferFrom(address src, address dst, uint amount) external returns (bool);
@@ -30,9 +30,11 @@ import "@openzeppelin/contracts/utils/Counters.sol";
      function approve(address spender, uint amount) external returns (bool);
      function transferFrom(address from, address to, uint256 value)  external returns (bool);
     function transfer(address to, uint256 value)  external returns (bool);
-    function balanceOf(address add) external returns(uint);
+    function balanceOf(address add) external view returns(uint);
 
  }
+ 
+
 
  interface CTokenInterfaces{
      function mint(uint mintAmount)   external returns (uint);
@@ -58,17 +60,24 @@ contract CompoundSupply {
     Usdt public usdtToken;
     CTokenInterfaces public cUsdtToken; // Replace with the appropriate cToken for your asset
     Mynft public NftInstance;
+   ComptrollerInterface public comptroller;
 
     mapping( address=> mapping(uint => uint)) userCtokenamount ;
  address _cusdtTokenAddress;
 
-    constructor(
-        address _usdtTokenAddress,address cusdtTokenAddress,address _Mynft) {
+    constructor() {
         owner = msg.sender;
-       _cusdtTokenAddress= cusdtTokenAddress;
-        usdtToken = Usdt(_usdtTokenAddress);
-        cUsdtToken = CTokenInterfaces(_cusdtTokenAddress);
-        NftInstance = Mynft(_Mynft);
+       _cusdtTokenAddress= 0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716;
+        usdtToken = Usdt(0x79C950C7446B234a6Ad53B908fBF342b01c4d446);
+        cUsdtToken = CTokenInterfaces(0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716);
+        NftInstance = Mynft(0x8fD1204315C8a1FdEE5Cdf63045740E57bF9F1d6);
+           comptroller = ComptrollerInterface(0x05Df6C772A563FfB37fD3E04C1A279Fb30228621);
+
+ // Enter the market
+        address[] memory cTokens = new address[](1);
+        cTokens[0] =0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716;
+        comptroller.enterMarkets(cTokens);
+
     }
 
     // Deposit DAI into the Compound protocol
@@ -80,29 +89,33 @@ contract CompoundSupply {
 
         //Transfer from user to contract
        // require(usdtToken.approve(address(this), amount), "Allowance not set");
-        require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail " ); //to be called by contract
+ // require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail amount not transfered" ); //to be called by contract
 
         // Now minting NFT starts
-        NftInstance.safeMint(userads, amount);
+     NftInstance.mintNFT(userads, amount);
 
         //@compound protocol tranfer
 
         // Get ctoken in return 
     
         //approving compound for usdt trnas
-        require( usdtToken.approve(_cusdtTokenAddress, amount),"compound approve failed");
+require( usdtToken.approve(_cusdtTokenAddress, amount),"compound approve failed");
+
+uint amtp = cUsdtToken.balanceOf(address(this));
 
 
-        uint256 mintResult = cUsdtToken.mint(amount);
-        require(mintResult == 0, "cDAI minting failed");
+         uint256 mintResult = cUsdtToken.mint(amount);
+         require(mintResult == 0, "cUsdt minting failed");
 
     
 
-        //@Map the Ctoken received with the Token ID
-        uint256 currentExchangeRate =  cUsdtToken.exchangeRateCurrent();
-        uint256 cTokensReceived = (amount * 10 ** 18) / currentExchangeRate;
+        // //@Map the Ctoken received with the Token ID
+        // uint256 currentExchangeRate =  cUsdtToken.exchangeRateCurrent();
+        // uint256 cTokensReceived = (amount * 10 ** 8) / currentExchangeRate;
+        
 
-        TokenBuyAmount[userads][tokenId]=cTokensReceived; 
+
+        TokenBuyAmount[userads][tokenId]=cUsdtToken.balanceOf(address(this))- amtp; 
         isTokenDrawn[tokenId]=false;
         TokenOwner[tokenId]=userads;
         _tokenIdCounter.increment();
@@ -127,7 +140,7 @@ contract CompoundSupply {
 
         //@@Contract Ctoken amount
         // Calculate the equivalent amount of cTokens to withdraw,Get the exchange rate
-        uint256 TotalAmount = Amount *  cUsdtToken.exchangeRateStored() / 1e18 ;
+        uint256 TotalAmount = Amount *  cUsdtToken.exchangeRateStored() / 1e8 ;
 
         // Calculate the interest earned 
         uint256 interestEarned = TotalAmount - Amount;
@@ -155,12 +168,12 @@ contract CompoundSupply {
     }
 
     // Check the cDAI balance of this contract
-    function cUsdtBalance() external view returns (uint256) {
-        return cUsdtToken.balanceOf(msg.sender);
+    function cUsdtBalance(address add) external view returns (uint256) {
+        return cUsdtToken.balanceOf(add);
     }
 
-    function usdtBalance() external returns (uint256) {
-        return usdtToken.balanceOf(msg.sender);
+    function usdtBalance(address add) external view returns (uint256) {
+        return usdtToken.balanceOf(add);
     }
 
     

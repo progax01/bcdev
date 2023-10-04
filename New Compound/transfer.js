@@ -8,14 +8,13 @@ const usdtContractABI = [{"inputs":[{"internalType":"uint256","name":"_initialAm
 const usdtContract = new web3.eth.Contract(usdtContractABI, usdtContractAddress);
 
 // Replace these with real addresses from your Ganache instance
-const senderAddress = '0x79C950C7446B234a6Ad53B908fBF342b01c4d446';
-const recipientAddress = '0xf6d4100Cd1C01B444950c390C50782DeE0D1871D';
+const senderAddress = '0xa0df350d2637096571F7A701CBc1C5fdE30dF76A';
+const recipientAddress = '0x40F4942D61a02382e725B117495D8e6a5dA84418';
 
 const amount = web3.utils.toWei('10000', 'ether'); // Amount in wei
 
-// Transfer USDT
-usdtContract.methods.transfer(recipientAddress, 1000000000)
- .send({ from: usdtContractAddress })
+usdtContract.methods.transfer(recipientAddress, 10000000)
+ .send({ from: senderAddress })
  .on('transactionHash', (hash) => {
  console.log(`Transaction hash: ${hash}`);
  })

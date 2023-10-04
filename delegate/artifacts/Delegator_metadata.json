@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
@@ -60,9 +60,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"delegator.sol": "Delegator"
+			"delegate/delegator.sol": "Delegator"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -74,7 +74,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"delegator.sol": {
+		"delegate/delegator.sol": {
 			"keccak256": "0x2c62a4f6cc43c45c4271bfbbd804987cb1457192033dbc1ddc930bbff872dc2f",
 			"license": "MIT",
 			"urls": [

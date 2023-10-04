@@ -397,7 +397,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MyToken.sol": "MyToken"
+			"Staking/MyToken.sol": "MyToken"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -451,7 +451,7 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"MyToken.sol": {
+		"Staking/MyToken.sol": {
 			"keccak256": "0x0ebb01008d08b0b5b3adfa75333c0bfe054ce463dc959daeae6e12473440348e",
 			"license": "MIT",
 			"urls": [
