@@ -8,8 +8,8 @@ const usdtContractABI = [{"inputs":[{"internalType":"uint256","name":"_initialAm
 const usdtContract = new web3.eth.Contract(usdtContractABI, usdtContractAddress);
 
 // Replace these with real addresses from your Ganache instance
-const senderAddress = '0xa0df350d2637096571F7A701CBc1C5fdE30dF76A';
-const recipientAddress = '0x1dFf27cCA52221fa331EFB75Ab870d83062b6bb8';//comp supply adrs
+const senderAddress = '0x9de2E0Cb2DDEEa396092A3E5ab6Ff9af5976e631';
+const recipientAddress = '0xe0CB45F0F48ca470831Dc906A37A3c7765D9fda6';//comp supply adrs
 
 const amount = web3.utils.toWei('10000', 'ether'); // Amount in wei
 

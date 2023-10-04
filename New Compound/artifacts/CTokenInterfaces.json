@@ -53,7 +53,8 @@
 			"exchangeRateCurrent()": "bd6d894d",
 			"exchangeRateStored()": "182df0f5",
 			"mint(uint256)": "a0712d68",
-			"redeem(uint256)": "db006a75"
+			"redeem(uint256)": "db006a75",
+			"redeemUnderlying(uint256)": "852a12e3"
 		}
 	},
 	"abi": [
@@ -130,6 +131,25 @@
 				}
 			],
 			"name": "redeem",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "redeemAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "redeemUnderlying",
 			"outputs": [
 				{
 					"internalType": "uint256",

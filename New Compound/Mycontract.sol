@@ -40,6 +40,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
      function mint(uint mintAmount)   external returns (uint);
     function exchangeRateStored()   external view returns (uint);
       function redeem(uint redeemTokens)   external returns (uint);
+   function redeemUnderlying(uint redeemAmount)  external returns (uint);
      function exchangeRateCurrent()   external returns (uint);
      function balanceOf(address owner)  external view returns (uint);
 
@@ -70,7 +71,7 @@ contract CompoundSupply {
        _cusdtTokenAddress= 0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716;
         usdtToken = Usdt(0x79C950C7446B234a6Ad53B908fBF342b01c4d446);
         cUsdtToken = CTokenInterfaces(0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716);
-        NftInstance = Mynft(0x8fD1204315C8a1FdEE5Cdf63045740E57bF9F1d6);
+        NftInstance = Mynft(0xC3aC749903716306b4CeD4E9d96D08EAcdcEf17F);
            comptroller = ComptrollerInterface(0x05Df6C772A563FfB37fD3E04C1A279Fb30228621);
 
  // Enter the market
@@ -89,7 +90,7 @@ contract CompoundSupply {
 
         //Transfer from user to contract
        // require(usdtToken.approve(address(this), amount), "Allowance not set");
- // require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail amount not transfered" ); //to be called by contract
+  require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail amount not transfered" ); //to be called by contract
 
         // Now minting NFT starts
      NftInstance.mintNFT(userads, amount);
@@ -146,7 +147,7 @@ uint amtp = cUsdtToken.balanceOf(address(this));
         uint256 interestEarned = TotalAmount - Amount;
 
         //Giving back the Ctoken to contract
-        uint256 redeemResult = cUsdtToken.redeem(Amount);
+        uint256 redeemResult = cUsdtToken.redeemUnderlying(Amount);
         require(redeemResult == 0, "usdt redeeming failed");
 
 
