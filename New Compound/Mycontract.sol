@@ -102,7 +102,7 @@ contract CompoundSupply {
         //approving compound for usdt trnas
 require( usdtToken.approve(_cusdtTokenAddress, amount),"compound approve failed");
 
-uint amtp = cUsdtToken.balanceOf(address(this));
+uint camount = cUsdtToken.balanceOf(address(this));
 
 
          uint256 mintResult = cUsdtToken.mint(amount);
@@ -116,7 +116,7 @@ uint amtp = cUsdtToken.balanceOf(address(this));
         
 
 
-        TokenBuyAmount[userads][tokenId]=cUsdtToken.balanceOf(address(this))- amtp; 
+        TokenBuyAmount[userads][tokenId]=cUsdtToken.balanceOf(address(this))  - camount; 
         isTokenDrawn[tokenId]=false;
         TokenOwner[tokenId]=userads;
         _tokenIdCounter.increment();
@@ -134,26 +134,30 @@ uint amtp = cUsdtToken.balanceOf(address(this));
         //Check for token Ownership
         require(TokenOwner[tokenID] == userads, "Your are not owner of this Token");
 
-        
+        uint usdtbal= usdtToken.balanceOf(address(this));
         // Check for Amount given for nft minting
 
         uint Amount= TokenBuyAmount[userads][tokenID];
 
         //@@Contract Ctoken amount
         // Calculate the equivalent amount of cTokens to withdraw,Get the exchange rate
-        uint256 TotalAmount = Amount *  cUsdtToken.exchangeRateStored() / 1e8 ;
+       
+        //Giving back the Ctoken to contr
+         
+        uint256 redeemResult = cUsdtToken.redeem(Amount);
+        require(redeemResult == 0, "usdt redeeming failed");
+
+
 
         // Calculate the interest earned 
-        uint256 interestEarned = TotalAmount - Amount;
+uint TotalAmount =usdtToken.balanceOf(address(this));
 
-        //Giving back the Ctoken to contract
-        uint256 redeemResult = cUsdtToken.redeemUnderlying(Amount);
-        require(redeemResult == 0, "usdt redeeming failed");
+        uint256 interestEarned = TotalAmount - usdtbal;
+
 
 
         //@@@ Transfering Total amount with interest to the Contract
         // Transfer the Dai tokens to the Contract
-        require(usdtToken.transfer(address(this), TotalAmount), "Transfer failed");
       
         //@@ sending amount to user
         uint sndAmount= TotalAmount-interestEarned;

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.21+commit.d9974bed"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -123,7 +123,7 @@
 		"compilationTarget": {
 			"Mycontract.sol": "CTokenInterfaces"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -320,11 +320,11 @@
 			]
 		},
 		"Mycontract.sol": {
-			"keccak256": "0x2bec0a68e8670d6bc3401ed7faf18371b5f31f1dea7e279f13af95d2a9296eec",
+			"keccak256": "0xfa5b20493c3f5b16fe5f36cb79b1bfb67a93cdbe63357e81128751478682ab59",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b206ad3da742f9a0bab3eb73a62c37e57fee7a521975286d3a06e37ae7a5786d",
-				"dweb:/ipfs/QmTFsVRoCx53D4cjxRCVTuUViJmhrKsov68hvNWsTUEWi1"
+				"bzz-raw://7aeb6a107083231d0b27c119e76c2ce5f7271a748524962a4250efaf445cfacd",
+				"dweb:/ipfs/QmRvVYfi1MS5tpmHWoNRLGKBtFbvQjUsM68N1rtVjAG3Wf"
 			]
 		},
 		"Mynft.sol": {
