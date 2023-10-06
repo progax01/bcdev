@@ -90,19 +90,19 @@ contract CompoundSupply {
 
         //Transfer from user to contract
        // require(usdtToken.approve(address(this), amount), "Allowance not set");
-  require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail amount not transfered" ); //to be called by contract
+        require(usdtToken.transferFrom(userads, address(this), amount), " Transfer Fail amount not transfered" ); //to be called by contract
 
         // Now minting NFT starts
-     NftInstance.mintNFT(userads, amount);
+        NftInstance.mintNFT(userads, amount);
 
         //@compound protocol tranfer
 
         // Get ctoken in return 
     
         //approving compound for usdt trnas
-require( usdtToken.approve(_cusdtTokenAddress, amount),"compound approve failed");
+        require( usdtToken.approve(_cusdtTokenAddress, amount),"compound approve failed");
 
-uint camount = cUsdtToken.balanceOf(address(this));
+        uint camount = cUsdtToken.balanceOf(address(this));
 
 
          uint256 mintResult = cUsdtToken.mint(amount);
@@ -150,7 +150,7 @@ uint camount = cUsdtToken.balanceOf(address(this));
 
 
         // Calculate the interest earned 
-uint TotalAmount =usdtToken.balanceOf(address(this));
+        uint TotalAmount =usdtToken.balanceOf(address(this));
 
         uint256 interestEarned = TotalAmount - usdtbal;
 
