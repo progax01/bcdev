@@ -1,24 +1,18 @@
 {
 	"compiler": {
-		"version": "0.8.21+commit.d9974bed"
+		"version": "0.7.6+commit.7338295f"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "contract ISwapRouter",
-						"name": "_swapRouter",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
 			{
 				"inputs": [],
-				"name": "DAI",
+				"name": "LINK",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -31,7 +25,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "USDC",
+				"name": "WETH",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -44,10 +38,10 @@
 			},
 			{
 				"inputs": [],
-				"name": "WETH9",
+				"name": "linkToken",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "contract IERC20",
 						"name": "",
 						"type": "address"
 					}
@@ -63,6 +57,19 @@
 						"internalType": "uint24",
 						"name": "",
 						"type": "uint24"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "routerAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -91,20 +98,15 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amountOut",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountInMaximum",
+						"name": "amountIn",
 						"type": "uint256"
 					}
 				],
-				"name": "swapExactOutputSingle",
+				"name": "swapReverseExactInputSingle",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "amountIn",
+						"name": "amountOut",
 						"type": "uint256"
 					}
 				],
@@ -117,6 +119,19 @@
 				"outputs": [
 					{
 						"internalType": "contract ISwapRouter",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "wethToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
 						"name": "",
 						"type": "address"
 					}
@@ -138,9 +153,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"swap.sol": "SwapExamples"
+			"TEST/test.sol": "Swap"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -152,14 +167,6 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
-				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
-			]
-		},
 		"@uniswap/v3-core/contracts/interfaces/callback/IUniswapV3SwapCallback.sol": {
 			"keccak256": "0x3f485fb1a44e8fbeadefb5da07d66edab3cfe809f0ac4074b1e54e3eb3c4cf69",
 			"license": "GPL-2.0-or-later",
@@ -176,20 +183,12 @@
 				"dweb:/ipfs/QmQj2CSCSwqDSU4KMNWxGsN2336Cy64WgpV1X1EHXNZWxM"
 			]
 		},
-		"@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol": {
-			"keccak256": "0x9af98b0908c96320ca6d08b22f0efca864742f6adbe5794cafe2d1d2e808b0cd",
-			"license": "GPL-2.0-or-later",
+		"TEST/test.sol": {
+			"keccak256": "0x205a3abaf4da72d410efe6db4868455815826cbd6e94af01d771bb64586dcdae",
+			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://da1d1e81e5bf534f0bf2934b3193db6cb1933f91ec006d2b88e9ad10a617a2d2",
-				"dweb:/ipfs/QmcPBk47QLMFWcX2y2S9eMFsJgoYWBd3R8ey55Bgmv6w6v"
-			]
-		},
-		"swap.sol": {
-			"keccak256": "0xa4410480c22793e9beaf749845db4ad164d74701bcd19d83a5a6f00b386d2b24",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://c1b81beef0cb2a8d02f249e71bd5de24f3f714c7b4154c196a5eb6af53accc8e",
-				"dweb:/ipfs/QmeE8AzB2jnYYi61D8FXxpxHZFrkjgT9muXr3ssKHCiB5A"
+				"bzz-raw://e90dd99b816f641011ff1960b94ef06dad6e5e455b00809572adb45c13affdae",
+				"dweb:/ipfs/QmXSzGPbd67yteFmHJ5a7rQFE6EYdKfZ5u5kT4YB5qCNqc"
 			]
 		}
 	},

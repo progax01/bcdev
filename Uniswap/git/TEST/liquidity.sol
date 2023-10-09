@@ -6,8 +6,8 @@ import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol';
 import '@uniswap/v3-core/contracts/libraries/TickMath.sol';
 import '@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol';
 import 'https://github.com/Uniswap/solidity-lib/blob/master/contracts/libraries/TransferHelper.sol';
-import '../interfaces/INonfungiblePositionManager.sol';
-import '../base/LiquidityManagement.sol';
+import 'https://github.com/Uniswap/v3-periphery/blob/main/contracts/base/LiquidityManagement.sol';
+import 'https://github.com/Uniswap/v3-periphery/blob/main/contracts/interfaces/INonfungiblePositionManager.sol';
 
 contract LiquidityExamples is IERC721Receiver {
     address public constant DAI = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
@@ -57,12 +57,6 @@ contract LiquidityExamples is IERC721Receiver {
         deposits[tokenId] = Deposit({owner: owner, liquidity: liquidity, token0: token0, token1: token1});
     }
 
-    /// @notice Calls the mint function defined in periphery, mints the same amount of each token.
-    /// For this example we are providing 1000 DAI and 1000 USDC in liquidity
-    /// @return tokenId The id of the newly minted ERC721
-    /// @return liquidity The amount of liquidity for the position
-    /// @return amount0 The amount of token0
-    /// @return amount1 The amount of token1
     function mintNewPosition()
         external
         returns (
@@ -120,11 +114,7 @@ contract LiquidityExamples is IERC721Receiver {
         }
     }
 
-    /// @notice Collects the fees associated with provided liquidity
-    /// @dev The contract must hold the erc721 token before it can collect fees
-    /// @param tokenId The id of the erc721 token
-    /// @return amount0 The amount of fees collected in token0
-    /// @return amount1 The amount of fees collected in token1
+  
     function collectAllFees(uint256 tokenId) external returns (uint256 amount0, uint256 amount1) {
         // Caller must own the ERC721 position, meaning it must be a deposit
 
@@ -144,10 +134,6 @@ contract LiquidityExamples is IERC721Receiver {
         _sendToOwner(tokenId, amount0, amount1);
     }
 
-    /// @notice A function that decreases the current liquidity by half. An example to show how to call the `decreaseLiquidity` function defined in periphery.
-    /// @param tokenId The id of the erc721 token
-    /// @return amount0 The amount received back in token0
-    /// @return amount1 The amount returned back in token1
     function decreaseLiquidityInHalf(uint256 tokenId) external returns (uint256 amount0, uint256 amount1) {
         // caller must be the owner of the NFT
         require(msg.sender == deposits[tokenId].owner, 'Not the owner');
@@ -155,8 +141,7 @@ contract LiquidityExamples is IERC721Receiver {
         uint128 liquidity = deposits[tokenId].liquidity;
         uint128 halfLiquidity = liquidity / 2;
 
-        // amount0Min and amount1Min are price slippage checks
-        // if the amount received after burning is not greater than these minimums, transaction will fail
+      
         INonfungiblePositionManager.DecreaseLiquidityParams memory params =
             INonfungiblePositionManager.DecreaseLiquidityParams({
                 tokenId: tokenId,
@@ -172,11 +157,6 @@ contract LiquidityExamples is IERC721Receiver {
         _sendToOwner(tokenId, amount0, amount1);
     }
 
-    /// @notice Increases liquidity in the current range
-    /// @dev Pool must be initialized already to add liquidity
-    /// @param tokenId The id of the erc721 token
-    /// @param amount0 The amount to add of token0
-    /// @param amount1 The amount to add of token1
     function increaseLiquidityCurrentRange(
         uint256 tokenId,
         uint256 amountAdd0,
@@ -208,10 +188,6 @@ contract LiquidityExamples is IERC721Receiver {
 
     }
 
-    /// @notice Transfers funds to owner of NFT
-    /// @param tokenId The id of the erc721
-    /// @param amount0 The amount of token0
-    /// @param amount1 The amount of token1
     function _sendToOwner(
         uint256 tokenId,
         uint256 amount0,
@@ -227,8 +203,6 @@ contract LiquidityExamples is IERC721Receiver {
         TransferHelper.safeTransfer(token1, owner, amount1);
     }
 
-    /// @notice Transfers the NFT to the owner
-    /// @param tokenId The id of the erc721
     function retrieveNFT(uint256 tokenId) external {
         // must be the owner of the NFT
         require(msg.sender == deposits[tokenId].owner, 'Not the owner');
