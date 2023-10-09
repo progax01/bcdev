@@ -49,7 +49,7 @@ contract UniswapV3Mock {
     }
 
     function addLiquidity(uint256 amountTokenDesired, uint256 amountTokenMin, uint256 amountETHMin, address to, uint256 deadline)
-        external
+        external payable 
         returns (uint256 amountToken, uint256 amountETH, uint256 _liquidity)
     {
         require(to != address(0), "Invalid address");
