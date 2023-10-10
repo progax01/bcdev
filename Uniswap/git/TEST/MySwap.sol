@@ -1,5 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
-pragma solidity =0.7.6;
+
+// 0xe81A053dBC20Bd60237594d77013E5a22d9F23B4 DEPLOYED ADDRESS
+
+pragma solidity ^0.7.6;
 pragma abicoder v2;
 
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
@@ -94,5 +97,55 @@ contract SingleSwap {
             });
 
         amountOut = swapRouter.exactInputSingle{value: msg.value}(params);
+    }
+
+    function swapTokenToEth(address tokenIn, uint256 amountIn, uint256 amountOutMinimum)
+    external
+    returns (uint256 amountOut)
+{
+    // Approve the transfer of the token to the router
+    IERC20(tokenIn).approve(address(swapRouter), amountIn);
+
+    ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
+        .ExactInputSingleParams({
+            tokenIn: tokenIn,
+            tokenOut: WETH,  // WETH is Goerli ETH
+            fee: poolFee,
+            recipient: msg.sender,
+            deadline: block.timestamp,
+            amountIn: amountIn,
+            amountOutMinimum: amountOutMinimum,
+            sqrtPriceLimitX96: 0
+        });
+
+    amountOut = swapRouter.exactInputSingle(params);
+}
+
+function swapTokenToToken(address tokenIn, address tokenOut, uint256 amountIn, uint256 amountOutMinimum)
+    external
+    returns (uint256 amountOut)
+{
+    // Approve the transfer of the input token to the router
+    IERC20(tokenIn).approve(address(swapRouter), amountIn);
+
+    ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
+        .ExactInputSingleParams({
+            tokenIn: tokenIn,
+            tokenOut: tokenOut,
+            fee: poolFee,
+            recipient: msg.sender,
+            deadline: block.timestamp,
+            amountIn: amountIn,
+            amountOutMinimum: amountOutMinimum,
+            sqrtPriceLimitX96: 0
+        });
+
+    amountOut = swapRouter.exactInputSingle(params);
+}
+
+
+    function CheckBalance(address ads) public view returns(uint){
+        uint bal= linkToken.balanceOf(ads);
+        return bal;
     }
 }

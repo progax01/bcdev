@@ -117,11 +117,11 @@
 			]
 		},
 		"MySwap.sol": {
-			"keccak256": "0xdbb5e5a7344255598d2ea0b62822e43c4b96ac0a3cf0c7e6f729f5adc1d19b4b",
+			"keccak256": "0x393766a9a0e5fda2db495a635146fe0d87b4c7f005e3f319cd85f317322a9859",
 			"license": "GPL-2.0-or-later",
 			"urls": [
-				"bzz-raw://5b6344c942ad441b55537ca42abce9c6cfab2fe156fa4709cb62507223c69fce",
-				"dweb:/ipfs/QmVL9vK9jMWgNxZVuLQHGg25zbHkgLYV5HgfzToJzzKE2c"
+				"bzz-raw://514eae538768cfc02c184cc1a9777116fa3cd94227852ab4417453a5aeb29ef6",
+				"dweb:/ipfs/Qmb3zXCdAjsd9cvvofmV3qiAXjzQ6d1kaBWK81UJuBXk5e"
 			]
 		}
 	},
