@@ -25,7 +25,7 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "Type",
+						"name": "userType",
 						"type": "string"
 					}
 				],
@@ -44,7 +44,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_adr",
+						"name": "adr",
 						"type": "address"
 					}
 				],
@@ -91,7 +91,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Manager/contracts/manager.sol": "manager"
+			"contracts/manager.sol": "Manager"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -105,12 +105,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Manager/contracts/manager.sol": {
-			"keccak256": "0x4770eda47da75bb87083f2a7fe7ff569ee2a2833bae9f87888de84c9c757d9d2",
+		"contracts/manager.sol": {
+			"keccak256": "0xff6a851c71962b3772ba938ce160908b4e38889a507ec9d1a1b43deea4f28801",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1107f5af9f6d25b48ee1e634a92d5ddceb292db5407e643f9921581849d127a0",
-				"dweb:/ipfs/QmcRcq1mN3FmFQphNcZXLZBHoq9LbjK5i8qryZ5AL5Yz1u"
+				"bzz-raw://608d5941abeac917ad22859a454913a1572182f2aa07a53179d1817ad670d306",
+				"dweb:/ipfs/QmTqoEwLLe9pJY7BMS9tprgzcuw6vbph5ozVpUiNHutjcP"
 			]
 		}
 	},

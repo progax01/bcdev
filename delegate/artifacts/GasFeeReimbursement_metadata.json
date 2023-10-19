@@ -74,7 +74,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"delegate/gassless.sol": "GasFeeReimbursement"
+			"gassless.sol": "GasFeeReimbursement"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -88,7 +88,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"delegate/gassless.sol": {
+		"gassless.sol": {
 			"keccak256": "0xe105df3e4d413ae53bcee26e57a44cf6bf6c3439fde3efbb6c5ce61e1d487c04",
 			"license": "MIT",
 			"urls": [

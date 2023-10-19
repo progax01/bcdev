@@ -60,7 +60,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"delegate/delegator.sol": "Delegator"
+			"delegator.sol": "Delegator"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -74,12 +74,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"delegate/delegator.sol": {
-			"keccak256": "0x2c62a4f6cc43c45c4271bfbbd804987cb1457192033dbc1ddc930bbff872dc2f",
+		"delegator.sol": {
+			"keccak256": "0x59fa7ed5c80cef0e006e53bf2e7ebd4296a10e971c727b3a6bfcb3a43b85808b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a4768829bc32e09ae04730c59453052d32179bc9872c24d73cd75dfde268fafb",
-				"dweb:/ipfs/QmR3yYNGjRbK3NZQogCTX9pNuurE27irgSU6kHrkePq5ce"
+				"bzz-raw://c0427b3623bc830b97a0abfabbf7d734564d086675808e80bf71aa18796f5ac9",
+				"dweb:/ipfs/QmagVtFZHFbpUzDfEyQX8hACingDJf3xqUAzRkzSFcYAVH"
 			]
 		}
 	},

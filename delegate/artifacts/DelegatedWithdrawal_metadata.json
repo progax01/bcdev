@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
@@ -91,7 +91,7 @@
 		"compilationTarget": {
 			"mycontract.sol": "DelegatedWithdrawal"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -104,19 +104,19 @@
 	},
 	"sources": {
 		"delegator.sol": {
-			"keccak256": "0x2c62a4f6cc43c45c4271bfbbd804987cb1457192033dbc1ddc930bbff872dc2f",
+			"keccak256": "0x59fa7ed5c80cef0e006e53bf2e7ebd4296a10e971c727b3a6bfcb3a43b85808b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a4768829bc32e09ae04730c59453052d32179bc9872c24d73cd75dfde268fafb",
-				"dweb:/ipfs/QmR3yYNGjRbK3NZQogCTX9pNuurE27irgSU6kHrkePq5ce"
+				"bzz-raw://c0427b3623bc830b97a0abfabbf7d734564d086675808e80bf71aa18796f5ac9",
+				"dweb:/ipfs/QmagVtFZHFbpUzDfEyQX8hACingDJf3xqUAzRkzSFcYAVH"
 			]
 		},
 		"mycontract.sol": {
-			"keccak256": "0xba11f099e68724c76ac9c4a91d7b912a4c4a9fba71b3dba841a421e139094409",
+			"keccak256": "0x167e4195557bcd175412ad4585394abe7be4e74cd744bb50429257ce4d28e0f1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3f3c22206842d174151173711107f8703e71b583815b9e73c915c826fd0031a4",
-				"dweb:/ipfs/QmVM1gUqbsEZRfN2h26HVdktQDK5mvnijgGEKjgALLZuMp"
+				"bzz-raw://c0488aee26abb529dd87eaab18e53aa6f7eeb18901b5ce7bc4644aab33765aef",
+				"dweb:/ipfs/QmWy7j7yfZYajaWL5NhqCiTNT5hA74hvoedNhsVpnuW1LV"
 			]
 		}
 	},
