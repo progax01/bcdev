@@ -12,7 +12,7 @@ contract Mynft is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("Mynft", "NFT") {}
+    constructor() ERC721("Mynft", "NFT") Ownable(msg.sender) {}
 
     function _baseURI() internal pure override returns (string memory) {
         return "https://orange-absolute-barracuda-733.mypinata.cloud/ipfs/QmVjGban98qKZtMr6r2QMq11v3zhswqfuXTX7x5oDGM956/";

@@ -17,7 +17,7 @@ contract Mynft is ERC721URIStorage, Ownable {
 
    
 
-    constructor() ERC721("MyNFT", "NFT") {}
+    constructor() ERC721("MyNFT", "NFT") Ownable(msg.sender) {}
 
     function _baseURI() internal pure override returns (string memory) {
         return

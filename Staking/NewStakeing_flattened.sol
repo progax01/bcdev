@@ -4,7 +4,7 @@
 
 // OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 /**
  * @title Counters
@@ -49,7 +49,7 @@ library Counters {
 
 
 // OpenZeppelin Contracts (last updated v5.0.0) (interfaces/draft-IERC6093.sol)
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 /**
  * @dev Standard ERC20 Errors
@@ -214,7 +214,7 @@ interface IERC1155Errors {
 
 // OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -241,7 +241,7 @@ abstract contract Context {
 
 // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 
 /**
@@ -343,7 +343,7 @@ abstract contract Ownable is Context {
 
 // OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/IERC20.sol)
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
@@ -425,7 +425,7 @@ interface IERC20 {
 
 // OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/extensions/IERC20Metadata.sol)
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 
 /**
@@ -453,7 +453,7 @@ interface IERC20Metadata is IERC20 {
 
 // OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/ERC20.sol)
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 
 
@@ -769,7 +769,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
 // File: MyToken.sol
 
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 
 
@@ -784,7 +784,7 @@ contract MyToken is ERC20, Ownable{
 // File: NewStakeing.sol
 
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.7;
 
 
 

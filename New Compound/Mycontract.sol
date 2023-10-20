@@ -71,7 +71,7 @@ contract CompoundSupply {
        _cusdtTokenAddress= 0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716;
         usdtToken = Usdt(0x79C950C7446B234a6Ad53B908fBF342b01c4d446);
         cUsdtToken = CTokenInterfaces(0x5A74332C881Ea4844CcbD8458e0B6a9B04ddb716);
-        NftInstance = Mynft(0xC3aC749903716306b4CeD4E9d96D08EAcdcEf17F);
+        NftInstance = Mynft(0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8);
         comptroller = ComptrollerInterface(0x05Df6C772A563FfB37fD3E04C1A279Fb30228621);
 
  // Enter the market

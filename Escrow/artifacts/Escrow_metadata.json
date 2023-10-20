@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.21+commit.d9974bed"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -185,9 +185,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Escrow/escrow.sol": "Escrow"
+			"escrow.sol": "Escrow"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -199,12 +199,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Escrow/escrow.sol": {
-			"keccak256": "0xf4ace86d2cb25f3d48fe11730ba91aa35ac3ebe2b21ad466838c8b366475597e",
+		"escrow.sol": {
+			"keccak256": "0xcb861500856a20f6382dec89021f4f5f0814da243a24d3814cfd85f62b815ff1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://91b68e2b8588d96375989ab1cef6f27226855a98894466ac1eda6f393ebf5207",
-				"dweb:/ipfs/QmPgCj5FNwXudtMH5GCmR5PjvqaEKeddgAgujdMYNYju37"
+				"bzz-raw://8f0f9581437518f11eae6e04631892ba3d1a842148b8fcc8cd56e6ae20d0684b",
+				"dweb:/ipfs/QmWs83sSsnpUYKcCjBePd9NHwJJ26LNyRsvM33qUjrJNab"
 			]
 		}
 	},

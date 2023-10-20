@@ -1,0 +1,4 @@
+docker cp Myblacktoken.sol  7b64d8136b2b:/home/ethsec  
+
+slither Myblacktoken.sol
+
