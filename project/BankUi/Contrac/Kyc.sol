@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.18;
 
 // Import Ownable contract for access control
 
@@ -27,14 +27,14 @@ contract KYC  {
     // Function to add or update KYC data
     function setKYCData(
         address userAds,
-        string memory FullName,
-        string memory Email,
-        uint Phone,
-        uint Aadhar,
-        string memory Location ) public {
+        string memory fullName,
+        string memory email,
+        uint phone,
+        uint  aadhar,
+        string memory location ) public {
             require(kycRecords[userAds].Aadhar == 0,"KYC already Done use");
 
-        kycRecords[userAds] = KYCData(userAds, true , FullName, Email,Phone,Aadhar,Location);
+        kycRecords[userAds] = KYCData(userAds, true , fullName, email, phone, aadhar, location);
         // emit KYCVerified(userAds,true, FullName, Email,Phone,Aadhar,Location);
     }
 

@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.18;
 
 // Import the Delegator contract
 import "./delegator.sol";
 
 contract DelegatedWithdrawal {
-    Delegator public delegatorContract;
+    Delegator public immutable delegatorContract;
 
     constructor(address _delegatorAddress) {
         // Set the address of the Delegator contract
@@ -30,7 +30,7 @@ contract DelegatedWithdrawal {
     }
 
     // Callback function to handle withdrawals (called by the Delegator)
-    function withdraw(uint256 amount) external {
+    function withdraw(uint256 amount) external  {
         // Ensure that only the Delegator contract can call this function
         require(msg.sender == address(delegatorContract), "Only the Delegator can call this function");
 

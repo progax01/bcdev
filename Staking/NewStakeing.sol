@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.17;
 
 import "./MyToken.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
@@ -15,13 +15,13 @@ contract MyStakingContract {
     using Counters for Counters.Counter;
 
     Counters.Counter private tokenIdCounter;
-    MyToken public token;
-    address public Owner;
+    MyToken public immutable token;
+    address public immutable owner;
     uint256[] time = [2, 4, 6, 8, 10];
 
     constructor(MyToken _token) {
         token = MyToken(_token);
-        Owner = msg.sender;
+        owner  = msg.sender;
     }
 
     struct Stake {
@@ -35,7 +35,7 @@ contract MyStakingContract {
     }
   
     mapping(address => Stake[]) public userStakes; 
-    mapping(uint => Stake) public Cid;
+    mapping(uint => Stake) public cid;
       
      function getBal(address adrs) public view returns (uint256) {
         return token.balanceOf(adrs);
@@ -52,18 +52,18 @@ contract MyStakingContract {
         Stake memory newStake = Stake(tokenIdCounter.current(), amount, duration, block.timestamp, msg.sender,false,false);
         userStakes[msg.sender].push(newStake);
         token.transferFrom(msg.sender, address(this), amount);
-        Cid[tokenIdCounter.current()]=newStake;
+        cid[tokenIdCounter.current()]=newStake;
         tokenIdCounter.increment();
         return newStake;
 
     } 
     
-    function check_Duration() public view returns (uint256[] memory) {
+    function check_duration() public view returns (uint256[] memory) {
         return time;
     }
 
     function chkid(uint id) public view returns(Stake memory){
-      return Cid[id];
+      return cid[id];
         
 
     }
@@ -78,44 +78,52 @@ contract MyStakingContract {
        
         uint256 endTime = block.timestamp;
 
-        uint256 duration = endTime -  Cid[userid].startTime;
-        if (duration >  Cid[userid].duration * 60) {
-            duration = Cid[userid].duration * 60;
+        uint256 duration = endTime -  cid[userid].startTime;
+        if (duration >  cid[userid].duration * 60) {
+            duration = cid[userid].duration * 60;
         }
 
         // You can define your own reward mechanism here.
         // For example, a simple linear reward of 1 token per second.
         uint256 reward = duration * 1;
 
-        return (Cid[userid].userads, Cid[userid].tokenIdc, reward, (reward +  Cid[userid].amount));
+        return (cid[userid].userads, cid[userid].tokenIdc, reward, (reward +  cid[userid].amount));
     }
 
 
-    function claimReward(uint256 userid) public {
-        require(msg.sender == Cid[userid].userads, "You can only claim your own rewards");
-        require(!Cid[userid].isClaimed, "Reward already claimed");
+    function ClaimReward(uint256 userid) public {
+        require(msg.sender == cid[userid].userads, "You can only claim your own rewards");
+        require(!cid[userid].isClaimed, "Reward already claimed");
+
+        // Mark the stake as claimed
+        cid[userid].isClaimed = true;
 
         (address userAddress, uint256 tokenId, uint256 reward, uint256 totalAmount) = calculateReward(userid);
 
         // Transfer the reward tokens to the user
-        token.transfer(userAddress, reward);
+       bool success= token.transfer(userAddress, reward);
+        require(success, "Token transfer failed");
 
-        // Mark the stake as claimed
-        Cid[userid].isClaimed = true;
+
     }
 
     function claimStakedAmount(uint256 userid) public {
-        require(msg.sender == Cid[userid].userads, "You can only claim your own staked amount");
-        require(!Cid[userid].isAmountc, "Reward already claimed your amount");
-        require(block.timestamp >= Cid[userid].startTime + Cid[userid].duration * 1 minutes, "You can only claim after the staking duration has passed");
+        require(msg.sender == cid[userid].userads, "You can only claim your own staked amount");
+        require(!cid[userid].isAmountc, "Reward already claimed your amount");
+        require(block.timestamp >= cid[userid].startTime + cid[userid].duration * 1 minutes, "You can only claim after the staking duration has passed");
+
+        // Mark the stake as claimed
+        cid[userid].isAmountc = true;
 
         (address userAddress, uint256 tokenId, uint256 reward, uint256 Amount) = calculateReward(userid);
 
+          uint256 stakedAmount = cid[userid].amount; // Store the staked amount in a local variable
+    cid[userid].amount = 0; // Reset the staked amount in the contract
+    
         // Transfer the staked amount back to the user
-        token.transfer(userAddress, Cid[userid].amount);
+         bool success = token.transfer(userAddress, stakedAmount);
+         require(success, "Token transfer failed");
 
-        // Mark the stake as claimed
-        Cid[userid].isAmountc = true;
     }
 
 

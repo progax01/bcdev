@@ -63,27 +63,27 @@
 					},
 					{
 						"internalType": "string",
-						"name": "FullName",
+						"name": "fullName",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "Email",
+						"name": "email",
 						"type": "string"
 					},
 					{
 						"internalType": "uint256",
-						"name": "Phone",
+						"name": "phone",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "Aadhar",
+						"name": "aadhar",
 						"type": "uint256"
 					},
 					{
 						"internalType": "string",
-						"name": "Location",
+						"name": "location",
 						"type": "string"
 					}
 				],
@@ -140,11 +140,11 @@
 	},
 	"sources": {
 		"Kyc.sol": {
-			"keccak256": "0x290d52e7f361bb4b8c0a43ce2198906fc20ac0a23d73326da5aea2517082bf7e",
+			"keccak256": "0x4f79d7829a5b7920afe69518afc7696b6347bd71a8bc0cd32928fcae2c3e7fc3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5f3e2a11c4c237a103baa92b3d4d1398197d7aa0faeabcd12aec3b329e4c33ac",
-				"dweb:/ipfs/QmZzhHvHihqZ3TJxEfhSYKC8LUbHSF62Vp1tqSuSFhj32i"
+				"bzz-raw://bbc0d2c19e05e47df24e864d4f1215f950f71c2b892909cf245b52a64a0e401e",
+				"dweb:/ipfs/QmenSNPSUZc8fhFfjzkqB3xUTJ4C5kWPAbzLatcx5TtZ4N"
 			]
 		}
 	},

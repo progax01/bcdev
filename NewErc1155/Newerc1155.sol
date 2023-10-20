@@ -34,9 +34,7 @@ contract Multitkon is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
                 abi.encodePacked(
                     "https://orange-absolute-barracuda-733.mypinata.cloud/ipfs/QmSGwZjoysG7DcmoK2yWEA4hTEKFcmck8GsyUjnuRt3pW7/",
                     Strings.toString(_tokenId),
-                    ".json"
-                )
-            );
+                    ".json") );
     }
 
     function mint(
@@ -64,7 +62,7 @@ contract Multitkon is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         uint256[] memory ids,
         uint256[] memory amounts,
         bytes memory data
-    ) internal override(ERC1155, ERC1155Supply) {
+    ) internal override {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 }
