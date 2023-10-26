@@ -263,6 +263,7 @@ const abi = [
   },
 ];
 const { string } = require("zod");
+const nodemailer = require('nodemailer');
 
 const web3 = new Web3(
   new Web3.providers.HttpProvider(
@@ -274,13 +275,23 @@ const key = process.env.SIGN_PV_KEY;
 const contractAddress = "0x78b4fa9A43084042a0B8C39ffE34bEdD76B294fb";
 const myAddress = process.env.OWNR;
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail', // Your email service provider
+  
+  auth: {
+    user: 'anurag.sahu@indicchain.com', // Your email address
+    pass: 'fsco dhgw onnc ndjv', // Your email password
+  },
+});
+
+
 router.use(bodyParser.json());
 router.use(cors());
 router.use(express.json());
 router.use(express.static("public"));
 router.use(express.urlencoded({ extended: true }));
 
-router.post("/getName", async function (req, res) {
+router.get("/getName", async function (req, res) {
   try {
     let contract = new web3.eth.Contract(abi, contractAddress);
     console.log("getName");
@@ -294,7 +305,7 @@ router.post("/getName", async function (req, res) {
   }
 });
 
-router.post("/getSymbol", async function (req, res) {
+router.get("/getSymbol", async function (req, res) {
   try {
     let contract = new web3.eth.Contract(abi, contractAddress);
     console.log("getSymbol");
@@ -308,7 +319,7 @@ router.post("/getSymbol", async function (req, res) {
   }
 });
 
-router.post("/ContractOwner", async function (req, res) {
+router.get("/ContractOwner", async function (req, res) {
   try {
     let contract = new web3.eth.Contract(abi, contractAddress);
     console.log("ContractOwner");
@@ -322,13 +333,16 @@ router.post("/ContractOwner", async function (req, res) {
   }
 });
 
-router.post("/getBalance", async function (req, res) {
+router.get("/getBalance", async function (req, res) {
+  const add =req.query.add;
+  console.log(add);
   try {
     let contract = new web3.eth.Contract(abi, contractAddress);
     console.log("getBalance");
-    let bal = await contract.methods.balanceOf(req.body.address).call();
+    let bal = await contract.methods.balanceOf(add).call();
     bal = bal.toString();
-    console.log(bal);
+    console.log("new",bal);
+    
     return res.status(200).json({ bal });
   } catch (error) {
     return res
@@ -380,7 +394,35 @@ router.post("/mint", async function (req, res) {
         .status(407)
         .json({ message: "Failed to get Details!!", flag: false });
     }
+    const mailOptions = {
+      from: 'anurag.sahu@indicchain.com',
+      to: 'himanshu.singh@indicchain.com', // User's email address
+      subject: 'Transaction Completed',
+      text: 'Your transaction has been successfully processed.',
+    };
+    
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Email error:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
 
+    const adminmailOptions = {
+      from: 'anurag.sahu@indicchain.com',
+      to: 'anurag.sahu@indicchain.com', // User's email address
+      subject: 'Transaction For minting done',
+      text: 'A new NFT is minted',
+    };
+
+    transporter.sendMail(adminmailOptions, (error, info) => {
+      if (error) {
+        console.error('Email error:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
     return res.status(200).json({
       message: receipt.transactionHash.toString(),
       flag: true,
@@ -399,3 +441,4 @@ process.stdout.write("\x1b]2;API Success\x1b\x5c");
 router.listen(port, () =>
   console.log(`Server running at http://localhost:${port}`)
 );
+

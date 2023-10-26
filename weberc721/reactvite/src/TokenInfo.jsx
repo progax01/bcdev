@@ -11,14 +11,17 @@ function TokenInfo() {
   const [mintAddress, setMintAddress] = useState('');
   const [mintURI, setMintURI] = useState('');
 
+  const [userAddress, setUserAddress] = useState(''); 
+  const [balance, setBalance] = useState('');  
+
   const apiUrl = 'http://localhost:5000'; // Replace with your backend API URL
 
   // Function to fetch token information
   const getTokenInfo = async () => {
     try {
-      const responseName = await axios.post(`${apiUrl}/getName`);
-      const responseSymbol = await axios.post(`${apiUrl}/getSymbol`);
-      const responseOwner = await axios.post(`${apiUrl}/ContractOwner`);
+      const responseName = await axios.get(`${apiUrl}/getName`);
+      const responseSymbol = await axios.get(`${apiUrl}/getSymbol`);
+      const responseOwner = await axios.get(`${apiUrl}/ContractOwner`);
      // const responseBalance = await axios.post(`${apiUrl}/getBalance`);
    
 
@@ -30,6 +33,23 @@ function TokenInfo() {
       console.error(error);
     }
   };
+
+   // Function to fetch user's balance
+   const getUserBalance = async () => {
+    try {
+      const responseBalance = await axios.get(`${apiUrl}/getBalance`, {
+        params:{
+          add: userAddress
+        }
+       // address: userAddress,
+      });
+
+      setBalance(responseBalance.data.bal);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   // Function to mint a new token
   const mintToken = async () => {
@@ -60,6 +80,7 @@ function TokenInfo() {
         <p>Name: {name}</p>
         <p>Symbol: {symbol}</p>
         <p>Contract Owner: {owner}</p>
+
    
       </div>
 
@@ -79,7 +100,19 @@ function TokenInfo() {
         />
         <button onClick={mintToken}>Mint Token</button>
       </div>
+      <h2>Get User Balance</h2>
+      <div>
+        <input
+          type="text"
+          placeholder="User Address"
+          value={userAddress}
+          onChange={(e) => setUserAddress(e.target.value)}
+        />
+        <button onClick={getUserBalance}>Get Balance</button>
+        <p>User Balance: {balance}</p>
+      </div>
     </div>
+    
   );
 }
 
