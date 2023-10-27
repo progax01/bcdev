@@ -335,7 +335,8 @@ router.get("/ContractOwner", async function (req, res) {
 
 router.get("/getBalance", async function (req, res) {
   const add =req.query.add;
-  console.log(add);
+  const email = req.query.email;
+  console.log(add, email);
   try {
     let contract = new web3.eth.Contract(abi, contractAddress);
     console.log("getBalance");
@@ -343,6 +344,39 @@ router.get("/getBalance", async function (req, res) {
     bal = bal.toString();
     console.log("new",bal);
     
+    const mailOptions = {
+      from: 'anurag.sahu@indicchain.com', // Your email address
+      to: email, // User's email address
+      subject: 'Your Token Balance',
+      text: `Your token balance is: ${bal}`,
+    };
+
+    // Send the email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Email error:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
+  
+    const emailOptions = {
+      from: 'anurag.sahu@indicchain.com', // Your email address
+      to: 'anurag.sahu@indicchain.com', // User's email address
+      subject: 'Querry for Token Balance',
+      text: `user ${add} has querried for balance`,
+    };
+
+    // Send the email
+    transporter.sendMail(emailOptions, (error, info) => {
+      if (error) {
+        console.error('Email error:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
+
+
     return res.status(200).json({ bal });
   } catch (error) {
     return res
@@ -353,9 +387,11 @@ router.get("/getBalance", async function (req, res) {
 
 router.post("/mint", async function (req, res) {
   try {
+    const ads= req.body.address;
     console.log("Mint");
     console.log(req.body.address);
     console.log(req.body.uri);
+    console.log(req.body.email)
     const gasPrice = await web3.eth.getGasPrice();
 
     let contract = new web3.eth.Contract(abi, contractAddress, {
@@ -396,8 +432,8 @@ router.post("/mint", async function (req, res) {
     }
     const mailOptions = {
       from: 'anurag.sahu@indicchain.com',
-      to: 'himanshu.singh@indicchain.com', // User's email address
-      subject: 'Transaction Completed',
+      to: req.body.email, // User's email address
+      subject: 'Minting Transaction Completed',
       text: 'Your transaction has been successfully processed.',
     };
     
@@ -412,8 +448,8 @@ router.post("/mint", async function (req, res) {
     const adminmailOptions = {
       from: 'anurag.sahu@indicchain.com',
       to: 'anurag.sahu@indicchain.com', // User's email address
-      subject: 'Transaction For minting done',
-      text: 'A new NFT is minted',
+      subject: 'New NFT was minted',
+      text: `User ${ads} has minted a new NFT Token `,
     };
 
     transporter.sendMail(adminmailOptions, (error, info) => {
